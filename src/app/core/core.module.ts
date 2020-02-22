@@ -20,6 +20,9 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatIconModule,
     MatListModule
+  ],
+  exports: [
+    CoreComponent
   ]
 })
 export class CoreModule { }
