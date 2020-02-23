@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {AdminComponent} from './admin/admin/admin.component';
-import {CoreComponent} from './core/core.component';
+import {CoreComponent} from './core.component';
 
 const routes: Routes = [
   {
@@ -11,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: 'admin',
-        component: AdminComponent
+        loadChildren: () => import(`./admin/admin.module`).then(m => m.AdminModule)
       },
     ],
   },
