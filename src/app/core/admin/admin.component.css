@@ -1,3 +1,7 @@
+.header-container {
+  padding: 1rem;
+  text-align: center;
+}
 .button-row {
   padding:  1rem;
 }
