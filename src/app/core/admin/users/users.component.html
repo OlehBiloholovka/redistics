@@ -1,1 +1,27 @@
-<p>users works!</p>
+<div class="main-container">
+  <p>users works!</p>
+  <form [formGroup]="myForm" class="form-row" (ngSubmit)="addUser()">
+    <mat-form-field appearance="outline">
+      <mat-label >Телефон</mat-label>
+      <label>
+        <input matInput maxlength="13" placeholder="Телефон" [formControl]="phone" required>
+      </label>
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error *ngIf="phone.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    &nbsp;
+    <mat-form-field>
+      <mat-label>Роль</mat-label>
+      <mat-select [formControl]="userRole" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let role of keys(roles)" [value]="role">
+          {{roles[role]}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="userRole.hasError('required')">Виберіть роль</mat-error>
+    </mat-form-field>
+    &nbsp;
+    <button mat-raised-button type="submit" color="primary" class="submit-button">Додати</button>
+  </form>
+</div>
+
