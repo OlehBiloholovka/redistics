@@ -10,3 +10,11 @@
   padding-right: 1rem;
   align-content: center;
 }
+.table-parent {
+  padding: 1rem;
+  display: block;
+}
+.full-width {
+  width: 100%;
+  max-width: 100%;
+}

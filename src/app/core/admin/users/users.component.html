@@ -1,27 +1,136 @@
 <div class="main-container">
-  <p>users works!</p>
-  <form [formGroup]="myForm" class="form-row" (ngSubmit)="addUser()">
+  <form [formGroup]="userForm" class="form-row" (ngSubmit)="addUser()">
     <mat-form-field appearance="outline">
       <mat-label >Телефон</mat-label>
       <label>
-        <input matInput maxlength="13" placeholder="Телефон" [formControl]="phone" required>
+        <input matInput maxlength="13" placeholder="Телефон" [formControl]="phoneNumber" required>
       </label>
       <mat-icon matSuffix>phone</mat-icon>
-      <mat-error *ngIf="phone.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error *ngIf="phoneNumber.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
     &nbsp;
     <mat-form-field>
       <mat-label>Роль</mat-label>
       <mat-select [formControl]="userRole" required>
         <mat-option>--</mat-option>
-        <mat-option *ngFor="let role of keys(roles)" [value]="role">
+        <mat-option *ngFor="let role of keys(roles)" [value]="roles[role]">
           {{roles[role]}}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="userRole.hasError('required')">Виберіть роль</mat-error>
     </mat-form-field>
     &nbsp;
-    <button mat-raised-button type="submit" color="primary" class="submit-button">Додати</button>
+    <button mat-raised-button type="submit" color="primary" class="submit-button">Зберегти</button>
   </form>
+  <div class="table-parent">
+    <table *ngIf="!!(users | async) && (users | async).length!== 0"
+           mat-table [dataSource]="users"
+           class="mat-elevation-z8 full-width border-table">
+<!--      <ng-container matColumnDef="RDMS">-->
+<!--        <th mat-header-cell *matHeaderCellDef> ТТ</th>-->
+<!--        <td mat-cell class="left-align" *matCellDef="let rdmsRegistration"-->
+<!--            [ngStyle]="getCellStyle(rdmsRegistration)">-->
+<!--          {{rdmsRegistration['codeRDMS']}}-->
+<!--          <br>-->
+<!--          {{rdmsRegistration['nameRDMS']}}-->
+<!--          <br>-->
+<!--          {{rdmsRegistration['addressRDMS']}}-->
+<!--          <br>-->
+<!--          {{rdmsRegistration['nameCompany']}}-->
+<!--        </td>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="codeNameRDMS">-->
+<!--        <th mat-header-cell *matHeaderCellDef> Назва ТТ</th>-->
+<!--        <td mat-cell class="left-align" *matCellDef="let rdmsRegistration" [ngStyle]="getCellStyle(rdmsRegistration)">-->
+<!--          {{rdmsRegistration['codeRDMS']}}-->
+<!--          <br>-->
+<!--          {{rdmsRegistration['nameRDMS']}}-->
+<!--        </td>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="addressRDMS">-->
+<!--        <th mat-header-cell *matHeaderCellDef> Адреса ТТ</th>-->
+<!--        <td mat-cell class="left-align" *matCellDef="let rdmsRegistration" [ngStyle]="getCellStyle(rdmsRegistration)">-->
+<!--          {{rdmsRegistration['addressRDMS']}}-->
+<!--          <br>-->
+<!--          {{rdmsRegistration['nameCompany']}}-->
+<!--        </td>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="typeRDMS">-->
+<!--        <th mat-header-cell *matHeaderCellDef> Тип</th>-->
+<!--        <td mat-cell *matCellDef="let rdmsRegistration" [ngStyle]="getCellStyle(rdmsRegistration)">-->
+<!--          {{isHandset$ ? rdmsRegistration['typeRDMS'].charAt(0) : rdmsRegistration['typeRDMS']}}-->
+<!--        </td>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="namePPD">-->
+<!--        <th mat-header-cell *matHeaderCellDef> ПЗД</th>-->
+<!--        <td mat-cell *matCellDef="let rdmsRegistration" [ngStyle]="getCellStyle(rdmsRegistration)">-->
+<!--          {{rdmsRegistration['namePPD']}}-->
+<!--        </td>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="allCount">-->
+<!--        <th mat-header-cell *matHeaderCellDef>-->
+<!--          <mat-icon aria-hidden="false" aria-label="Example home icon">send</mat-icon>-->
+<!--        </th>-->
+<!--        <td mat-cell *matCellDef="let rdmsRegistration"-->
+<!--            [ngStyle]="getCellStyle(rdmsRegistration)"> {{rdmsRegistration['allCount']}} </td>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="onCheckingCount">-->
+<!--        <th mat-header-cell *matHeaderCellDef>-->
+<!--          <mat-icon aria-hidden="false" aria-label="Example home icon">hourglass_empty</mat-icon>-->
+<!--        </th>-->
+<!--        <td mat-cell *matCellDef="let rdmsRegistration"-->
+<!--            [ngStyle]="getCellStyle(rdmsRegistration)"> {{rdmsRegistration['onCheckingCount']}} </td>-->
+<!--      </ng-container>-->
+      <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">contact_phone</mat-icon>
+      </th>
+      <td mat-cell *matCellDef="let user">
+        {{user['phoneNumber']}}
+      </td>
+      </ng-container>
+      <ng-container matColumnDef="displayName">
+        <th mat-header-cell *matHeaderCellDef>
+          Користувач
+        </th>
+        <td mat-cell *matCellDef="let user">
+          {{user['displayName']}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="userRole">
+        <th mat-header-cell *matHeaderCellDef>
+          Роль
+        </th>
+        <td mat-cell *matCellDef="let user">
+          {{user['userRole']}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="editUser">
+        <th mat-header-cell *matHeaderCellDef>
+        </th>
+        <td mat-cell *matCellDef="let user">
+          <button mat-icon-button color="accent" (click)="editUser(user)">
+            <mat-icon aria-hidden="false"
+                      aria-label="Edit icon">edit
+            </mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="deleteUser">
+        <th mat-header-cell *matHeaderCellDef>
+        </th>
+        <td mat-cell *matCellDef="let user">
+          <button mat-icon-button color="primary" (click)="deleteUser(user)">
+            <mat-icon aria-hidden="false"
+                      aria-label="Delete icon">delete
+            </mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row
+          *matHeaderRowDef="(isHandset$ | async) ? displayedColumns : displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: (isHandset$ | async) ? displayedColumns : displayedColumns;"></tr>
+    </table>
+  </div>
 </div>
 

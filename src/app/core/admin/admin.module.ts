@@ -14,22 +14,24 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
   declarations: [AdminComponent, SettingsComponent, ProfileComponent, UsersComponent],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    MatButtonModule,
-    MatSlideToggleModule,
-    LayoutModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatSelectModule
-  ],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        MatButtonModule,
+        MatSlideToggleModule,
+        LayoutModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        MatTableModule
+    ],
   exports: [
     AdminComponent,
   ]
