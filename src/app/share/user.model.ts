@@ -5,5 +5,5 @@ export class User {
   phoneNumber: string;
   userRole: UserRole;
   displayName: string;
-  codePPD: number[];
+  codePPD: {id: number, name: string}[];
 }

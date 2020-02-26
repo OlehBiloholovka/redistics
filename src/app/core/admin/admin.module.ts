@@ -15,6 +15,9 @@ import {MatInputModule} from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import {MatTableModule} from '@angular/material/table';
         MatInputModule,
         ReactiveFormsModule,
         MatSelectModule,
-        MatTableModule
+        MatTableModule,
+        DragDropModule,
+        MatChipsModule,
+        MatExpansionModule
     ],
   exports: [
     AdminComponent,
