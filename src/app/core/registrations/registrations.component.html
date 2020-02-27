@@ -1,1 +1,7 @@
-<p>registrations works!</p>
+<div class="header-container"><h1 class="mat-h1">Реєстрації</h1></div>
+<div class="button-row">
+  <a [routerLinkActive]="['mat-accent']" [routerLink]="['ppr']" mat-raised-button>ППР</a>
+  <a [routerLinkActive]="['mat-accent']" [routerLink]="['individual']" href="#" mat-raised-button>Партнер ІП</a>
+  <a [routerLinkActive]="['mat-accent']" [routerLink]="['partner']" mat-raised-button>Партнер 3+</a>
+</div>
+<router-outlet></router-outlet>
