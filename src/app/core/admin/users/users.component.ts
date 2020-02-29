@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserRole} from '../../../share/user-role.enum';
+import {UserRole} from '../../../share/models/user-role.enum';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map, shareReplay} from 'rxjs/operators';
-import {User} from '../../../share/user.model';
+import {User} from '../../../share/models/user.model';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
@@ -32,8 +32,9 @@ export class UsersComponent implements OnInit {
   users: BehaviorSubject<User[]>;
   userArray: User[];
   displayedColumns: string[] = ['phoneNumber', 'displayName', 'userRole', 'editUser', 'deleteUser'];
-  // codes: {id: number, name: string}[] = [];
-  ppdAll: {id: number, name: string}[] = [
+  displayedColumnsHandset: string[] = ['user', 'editUser', 'deleteUser'];
+    // codes: {id: number, name: string}[] = [];
+  ppdAll: { id: number, name: string }[] = [
     {id: 1, name: 'Валько Ярослав Петрович'},
     {id: 2, name: 'Горшковський Дмитро Дмитрович'},
     {id: 3, name: 'Мандюк Роман Михайлович'},
@@ -42,7 +43,7 @@ export class UsersComponent implements OnInit {
     {id: 6, name: 'Турко Сергій Васильович'},
     {id: 7, name: 'Хмара Павло Ігорович'}
   ];
-  ppds: {id: number, name: string}[] = this.ppdAll.filter(value => !this.codePPD.value.map(v => v.id).includes(value.id));
+  ppds: { id: number, name: string }[] = this.ppdAll.filter(value => !this.codePPD.value.map(v => v.id).includes(value.id));
   visible = true;
   selectable = true;
   removable = true;
@@ -51,7 +52,7 @@ export class UsersComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) {
   }
 
-  drop(event: CdkDragDrop<{id: number, name: string}[]>) {
+  drop(event: CdkDragDrop<{ id: number, name: string }[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -73,7 +74,7 @@ export class UsersComponent implements OnInit {
     this.users = new BehaviorSubject(this.userArray);
   }
 
-  getPpds(): {id: number, name: string}[] {
+  getPpds(): { id: number, name: string }[] {
     return this.ppdAll.filter(value => !this.codePPD.value?.map(v => v.id).includes(value.id));
   }
 
@@ -96,7 +97,6 @@ export class UsersComponent implements OnInit {
   }
 
 
-
   getErrorMessage() {
     return this.phoneNumber.hasError('required') ? 'Введіть телефон' :
       this.phoneNumber.hasError('pattern') ? 'Невірний телефон: +380XXYYYYYYY' :
@@ -109,12 +109,14 @@ export class UsersComponent implements OnInit {
   }
 
   editUser(user: User) {
-    if (!user.codePPD) { user.codePPD = []; }
+    if (!user.codePPD) {
+      user.codePPD = [];
+    }
     this.userForm.reset(user);
     this.isOpenedEditor = true;
   }
 
-  remove(item: {id: number, name: string}) {
+  remove(item: { id: number, name: string }) {
     this.codePPD.setValue(this.codePPD.value.filter(value => value.id !== item.id));
     // this.ppds.push(item);
   }

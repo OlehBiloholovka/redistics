@@ -1,7 +1,76 @@
 <div class="header-container"><h1 class="mat-h1">Реєстрації</h1></div>
-<div class="button-row">
+<div class="menu-button-row">
   <a [routerLinkActive]="['mat-accent']" [routerLink]="['ppr']" mat-raised-button>ППР</a>
   <a [routerLinkActive]="['mat-accent']" [routerLink]="['individual']" href="#" mat-raised-button>Партнер ІП</a>
   <a [routerLinkActive]="['mat-accent']" [routerLink]="['partner']" mat-raised-button>Партнер 3+</a>
 </div>
-<router-outlet></router-outlet>
+<div class="filter-container">
+  <mat-card mat-elevation-z8>
+    <mat-form-field *ngIf="dateIds">
+      <mat-label>Дата</mat-label>
+      <mat-select [(ngModel)]="dateFilterValue$" (selectionChange)="getExperts($event.value)">
+        <mat-option *ngFor="let el of dateIds"
+                    [value]="el">
+          {{el}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="experts">
+      <mat-label>Експерт</mat-label>
+      <mat-select [(ngModel)]="expertFilterValue$" (selectionChange)="getSupervisors($event.value)">
+        <mat-option *ngFor="let el of experts"
+                    [value]="el">
+          {{el}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="supervisors">
+      <mat-label>Супервайзер</mat-label>
+      <mat-select [(ngModel)]="supervisorFilterValue$" (selectionChange)="getPPDs($event.value)">
+        <mat-option *ngFor="let el of supervisors"
+                    [value]="el">
+          {{el}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="ppds">
+      <mat-label>ПЗД</mat-label>
+      <mat-select [(ngModel)]="ppdFilterValue$" (selectionChange)="getData($event.value)">
+        <mat-option *ngFor="let el of ppds"
+                    [value]="el">
+          {{el}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Категорія ТТ</mat-label>
+      <mat-select [(ngModel)]="categoryFilterValue$" multiple #categorySelect="ngModel"
+                  (selectionChange)="filterDataByCategory($event.value)">
+        <mat-option *ngFor="let el of categories" [value]="el">
+          {{el}}
+        </mat-option>
+        <mat-checkbox class="mat-option"
+                      disableRipple="true"
+                      color="warn"
+                      [indeterminate]="isIndeterminate(categorySelect, categoriesAB)"
+                      [checked]="isSelectionChecked(categorySelect, categoriesAB)"
+                      (click)="$event.stopPropagation()"
+                      (change)="toggleSelection($event, categorySelect, categoriesAB)">
+          Вибрати A/B
+        </mat-checkbox>
+        <mat-checkbox class="mat-option"
+                      disableRipple="true"
+                      color="accent"
+                      [indeterminate]="isIndeterminate(categorySelect, categories)"
+                      [checked]="isSelectionChecked(categorySelect, categories)"
+                      (click)="$event.stopPropagation()"
+                      (change)="toggleSelection($event, categorySelect, categories)">
+          Вибрати всі
+        </mat-checkbox>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
+</div>
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>
