@@ -15,7 +15,11 @@ export class CoreComponent {
       map(result => result.matches),
       shareReplay()
     );
+  isHandset: boolean;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.isHandset$.subscribe(value => this.isHandset = value);
+  }
+
 
 }

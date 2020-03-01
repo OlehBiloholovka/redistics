@@ -5,9 +5,9 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Меню</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#" [routerLink]="['/registrations']">Реєстрації</a>
-      <a mat-list-item href="#" [routerLink]="['/admin']">Адміністрування</a>
+      <a mat-list-item href="#" (click)="isHandset ? drawer.close() : null">Dashboard</a>
+      <a mat-list-item href="#" [routerLink]="['/registrations']" (click)="isHandset ? drawer.close() : null">Реєстрації</a>
+      <a mat-list-item href="#" [routerLink]="['/admin']" (click)="isHandset ? drawer.close() : null">Адміністрування</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
