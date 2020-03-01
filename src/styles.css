@@ -34,3 +34,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding: 0.5rem 0 0.5rem 0;
   display: block;
 }
+th.mat-column-position, td.mat-column-position {
+  padding-left: 1rem;
+}

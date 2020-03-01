@@ -35,7 +35,7 @@
   <ng-container matColumnDef="typeRDMS">
     <th mat-header-cell *matHeaderCellDef> Тип</th>
     <td mat-cell *matCellDef="let outletRegistration" [ngStyle]="getCellStyle(outletRegistration)">
-      {{isHandset$ ? outletRegistration['typeRDMS'].charAt(0) : outletRegistration['typeRDMS']}}
+      {{(isHandset$ | async) ? outletRegistration['typeRDMS'].charAt(0) : outletRegistration['typeRDMS']}}
     </td>
   </ng-container>
   <ng-container matColumnDef="namePPD">

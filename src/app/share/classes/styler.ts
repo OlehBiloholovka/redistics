@@ -1,6 +1,8 @@
 import {Completable} from '../interfaces/completable';
 import {OutletRegistration} from '../models/outlet-registration.model';
 import {IndividualPlanPartnerRegistration} from '../models/individual-plan-partner-registration.model';
+import {Registration} from '../models/registration.model';
+import {RegistrationCounter} from './registration-counter';
 
 export class Styler {
   static getCellStyle(completable: Completable) {
@@ -52,5 +54,45 @@ export class Styler {
       };
     }
     return {};
+  }
+  static getDetailedCellStyle(registration: Registration) {
+    if (RegistrationCounter.isDudOk(registration)) {
+      return {
+        color: 'white'
+      };
+    }
+    if (RegistrationCounter.isInActivation(registration)) {
+      return {
+        'background-color': 'blue',
+      };
+    }
+    if (RegistrationCounter.maybeDudOk(registration)) {
+      return {
+        'background-color': 'blue',
+      };
+    }
+    return {
+      color: 'white'
+    };
+  }
+  static getDetailedRowStyle(registration: Registration) {
+    if (RegistrationCounter.isDudOk(registration)) {
+      return {
+        'background-color': 'green',
+      };
+    }
+    if (RegistrationCounter.isInActivation(registration)) {
+      return {
+        'background-color': 'yellow',
+      };
+    }
+    if (RegistrationCounter.maybeDudOk(registration)) {
+      return {
+        'background-color': 'orange',
+      };
+    }
+    return {
+      'background-color': 'red',
+    };
   }
 }

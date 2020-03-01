@@ -14,21 +14,24 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import { DetailedComponent } from './detailed/detailed.component';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
-  declarations: [RegistrationsComponent, PprComponent, IndividualComponent, PartnerComponent],
-  imports: [
-    CommonModule,
-    RegistrationsRoutingModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    FormsModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatTableModule,
-    MatIconModule
-  ]
+  declarations: [RegistrationsComponent, PprComponent, IndividualComponent, PartnerComponent, DetailedComponent],
+    imports: [
+        CommonModule,
+        RegistrationsRoutingModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        FormsModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatTableModule,
+        MatIconModule,
+        MatInputModule
+    ]
 })
 export class RegistrationsModule { }

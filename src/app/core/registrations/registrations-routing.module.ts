@@ -4,6 +4,7 @@ import {RegistrationsComponent} from './registrations.component';
 import {PprComponent} from './ppr/ppr.component';
 import {IndividualComponent} from './individual/individual.component';
 import {PartnerComponent} from './partner/partner.component';
+import {DetailedComponent} from './detailed/detailed.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'partner',
         component: PartnerComponent,
+      },
+      {
+        path: 'detailed',
+        component: DetailedComponent,
       },
     ],
   }
