@@ -6,6 +6,7 @@ export class PartnerRegistration extends Outlet implements Completable {
   checkedCount: number;
   plan: number;
   sendCount: number;
+  inWorkCount: number;
 
   isCompleted(): boolean {
     return RegistrationCounter.isCompleted(this.plan, this.checkedCount);

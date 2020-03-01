@@ -8,6 +8,7 @@ export class OutletRegistration extends Outlet implements MayBeCompletable, HasP
   onCheckingCount: number;
   plan: number;
   sendCount: number;
+  inWorkCount: number;
 
   hasPprContract(): boolean {
     return RegistrationCounter.hasPprContract(this.PPR);

@@ -2,7 +2,9 @@
        mat-table [dataSource]="filteredOutletRegistrations"
        class="mat-elevation-z8 full-width border-table">
   <ng-container matColumnDef="RDMS">
-    <th mat-header-cell *matHeaderCellDef> ТТ</th>
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">store</mat-icon>
+    </th>
     <td mat-cell class="left-align" *matCellDef="let outletRegistration"
         [ngStyle]="getCellStyle(outletRegistration)">
       {{outletRegistration['codeRDMS']}}

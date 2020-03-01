@@ -3,6 +3,8 @@ import {Observable} from 'rxjs';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map, shareReplay} from 'rxjs/operators';
 import {OutletRegistration} from '../../../share/models/outlet-registration.model';
+import {Completable} from '../../../share/interfaces/completable';
+import {Styler} from '../../../share/classes/styler';
 
 @Component({
   selector: 'app-ppr',
@@ -34,53 +36,33 @@ export class PprComponent implements OnInit {
     outletRegistration.checkedCount = 3;
     outletRegistration.onCheckingCount = 2;
     outletRegistration.typeRDMS = 'AA_4';
-    this.filteredOutletRegistrations.push(outletRegistration);
+    const outletRegistration1 = new OutletRegistration();
+    outletRegistration1.nameRDMS = 'Lifecell';
+    outletRegistration1.codeRDMS = 10002;
+    outletRegistration1.PPR = 'Да';
+    outletRegistration1.categoryRDMS = 'Спец. розница (GSM)';
+    outletRegistration1.plan = 5;
+    outletRegistration1.sendCount = 7;
+    outletRegistration1.checkedCount = 2;
+    outletRegistration1.onCheckingCount = 6;
+    outletRegistration1.typeRDMS = 'AA_4';
+    const outletRegistration2 = new OutletRegistration();
+    outletRegistration2.nameRDMS = 'Kyivstar';
+    outletRegistration2.codeRDMS = 10003;
+    outletRegistration2.PPR = 'Да';
+    outletRegistration2.categoryRDMS = 'Спец. розница (GSM)';
+    outletRegistration2.plan = 5;
+    outletRegistration2.sendCount = 4;
+    outletRegistration2.checkedCount = 0;
+    outletRegistration2.onCheckingCount = 0;
+    outletRegistration2.typeRDMS = 'AA_4';
+    this.filteredOutletRegistrations.push(outletRegistration, outletRegistration1, outletRegistration2);
   }
 
-  getCellStyle(outletRegistration: OutletRegistration) {
-    if (outletRegistration.isCompleted()) {
-      return {
-        color: 'white'
-      };
-    }
-    if (outletRegistration.mayBeCompleted()) {
-      return {
-        color: 'blue'
-      };
-    }
-    if (outletRegistration.toMakeUnchecked() < 3 && outletRegistration.sendCount !== 0) {
-      return {
-        color: 'blue'
-      };
-    }
-    if (outletRegistration.sendCount === 0) {
-      return {
-        color: 'white'
-      };
-    }
-    return {};
+  getCellStyle(completable: Completable) {
+    return Styler.getCellStyle(completable);
   }
-  getRowStyle(outletRegistration: OutletRegistration) {
-    if (outletRegistration.isCompleted()) {
-      return {
-        'background-color': 'green',
-      };
-    }
-    if (outletRegistration.mayBeCompleted()) {
-      return {
-        'background-color': 'orange',
-      };
-    }
-    if (outletRegistration.toMakeUnchecked() < 3 && outletRegistration.sendCount !== 0) {
-      return {
-        'background-color': 'yellow',
-      };
-    }
-    if (outletRegistration.sendCount === 0) {
-      return {
-        'background-color': 'red',
-      };
-    }
-    return {};
+  getRowStyle(completable: Completable) {
+    return Styler.getRowStyle(completable);
   }
 }

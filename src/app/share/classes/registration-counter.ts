@@ -11,4 +11,7 @@ export class RegistrationCounter {
   static hasPprContract(PPR: string): boolean {
     return PPR === 'Да';
   }
+  static hasIndividualPlan(plan: number): boolean {
+    return !!plan || plan === 0;
+  }
 }
