@@ -22,7 +22,7 @@ export class OutletRegistration extends Outlet implements MayBeCompletable, HasP
   }
 
   mayBeCompleted(): boolean {
-    return RegistrationCounter.isCompleted(this.plan, this.onCheckingCount);
+    return RegistrationCounter.isCompleted(this.plan, this.onCheckingCount + this.checkedCount);
   }
 
   toMake(): number {
@@ -30,6 +30,6 @@ export class OutletRegistration extends Outlet implements MayBeCompletable, HasP
   }
 
   toMakeUnchecked(): number {
-    return RegistrationCounter.toMake(this.plan, this.onCheckingCount);
+    return RegistrationCounter.toMake(this.plan, this.onCheckingCount + this.checkedCount);
   }
 }

@@ -13,7 +13,7 @@ export class IndividualPlanPartnerRegistration extends Partner implements MayBeC
   }
 
   mayBeCompleted(): boolean {
-    return RegistrationCounter.isCompleted(this.plan, this.onCheckingCount);
+    return RegistrationCounter.isCompleted(this.plan, this.onCheckingCount + this.checkedCount);
   }
 
   toMake(): number {
@@ -21,6 +21,6 @@ export class IndividualPlanPartnerRegistration extends Partner implements MayBeC
   }
 
   toMakeUnchecked(): number {
-    return RegistrationCounter.toMake(this.plan, this.onCheckingCount);
+    return RegistrationCounter.toMake(this.plan, this.onCheckingCount + this.checkedCount);
   }
 }
