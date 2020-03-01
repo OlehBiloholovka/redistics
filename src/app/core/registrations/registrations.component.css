@@ -1,0 +1,7 @@
+.button-row {
+  padding:  1rem;
+}
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}

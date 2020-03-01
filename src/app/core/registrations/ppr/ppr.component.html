@@ -1,0 +1,96 @@
+<table *ngIf="filteredOutletRegistrations && filteredOutletRegistrations.length!== 0"
+       mat-table [dataSource]="filteredOutletRegistrations"
+       class="mat-elevation-z8 full-width border-table">
+  <ng-container matColumnDef="RDMS">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">store</mat-icon>
+    </th>
+    <td mat-cell class="left-align" *matCellDef="let outletRegistration"
+        [ngStyle]="getCellStyle(outletRegistration)">
+      {{outletRegistration['codeRDMS']}}
+      <br>
+      {{outletRegistration['nameRDMS']}}
+      <br>
+      {{outletRegistration['addressRDMS']}}
+      <br>
+      {{outletRegistration['nameCompany']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="codeNameRDMS">
+    <th mat-header-cell *matHeaderCellDef> Назва ТТ</th>
+    <td mat-cell class="left-align" *matCellDef="let outletRegistration" [ngStyle]="getCellStyle(outletRegistration)">
+      {{outletRegistration['codeRDMS']}}
+      <br>
+      {{outletRegistration['nameRDMS']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="addressRDMS">
+    <th mat-header-cell *matHeaderCellDef> Адреса ТТ</th>
+    <td mat-cell class="left-align" *matCellDef="let outletRegistration" [ngStyle]="getCellStyle(outletRegistration)">
+      {{outletRegistration['addressRDMS']}}
+      <br>
+      {{outletRegistration['nameCompany']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="typeRDMS">
+    <th mat-header-cell *matHeaderCellDef> Тип</th>
+    <td mat-cell *matCellDef="let outletRegistration" [ngStyle]="getCellStyle(outletRegistration)">
+      {{(isHandset$ | async) ? outletRegistration['typeRDMS'].charAt(0) : outletRegistration['typeRDMS']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="namePPD">
+    <th mat-header-cell *matHeaderCellDef> ПЗД</th>
+    <td mat-cell *matCellDef="let outletRegistration" [ngStyle]="getCellStyle(outletRegistration)">
+      {{outletRegistration['namePPD']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="sendCount">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">send</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let outletRegistration"
+        [ngStyle]="getCellStyle(outletRegistration)"> {{outletRegistration['sendCount']}} </td>
+  </ng-container>
+  <ng-container matColumnDef="onCheckingCount">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">hourglass_empty</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let outletRegistration"
+        [ngStyle]="getCellStyle(outletRegistration)"> {{outletRegistration['onCheckingCount']}} </td>
+  </ng-container>
+  <ng-container matColumnDef="checkedCount">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">check_circle</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let outletRegistration"
+        [ngStyle]="getCellStyle(outletRegistration)"> {{outletRegistration['checkedCount']}} </td>
+  </ng-container>
+  <ng-container matColumnDef="plan">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">assignment</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let outletRegistration"
+        [ngStyle]="getCellStyle(outletRegistration)"> {{outletRegistration['plan']}} </td>
+  </ng-container>
+  <ng-container matColumnDef="toMake">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">next_week</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let outletRegistration" [ngStyle]="getCellStyle(outletRegistration)">
+      {{outletRegistration['toMake']()}}({{outletRegistration['toMakeUnchecked']()}})
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="hasPPRContract">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">assignment_turned_in</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let outletRegistration" [ngStyle]="getCellStyle(outletRegistration)">
+      <mat-icon aria-hidden="false"
+                aria-label="Example home icon">{{outletRegistration['hasPprContract'] ? 'check_box' : 'check_box_outline_blank'}}</mat-icon>
+    </td>
+  </ng-container>
+  <tr mat-header-row
+      *matHeaderRowDef="(isHandset$ | async) ? displayedColumnsHandset : displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: (isHandset$ | async) ? displayedColumnsHandset : displayedColumns;"
+      [ngStyle]="getRowStyle(row)"></tr>
+</table>

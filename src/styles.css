@@ -2,3 +2,38 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.main-container {
+  padding: 1rem;
+  display: block;
+}
+.header-container {
+  padding: 1rem 1rem 0 1rem;
+  text-align: center;
+}
+.filter-container {
+  padding: 1rem 1rem 0 1rem;
+}
+.filter-container mat-card mat-form-field {
+  margin-right: 0.5rem;
+}
+.menu-button-row {
+  padding: 0 1rem 0 1rem;
+}
+.menu-button-row button,
+.menu-button-row a {
+  margin: 0 8px 8px 0;
+  /*margin-right: 8px;*/
+  /*margin-right: 8px;*/
+}
+.full-width {
+  width: 100%;
+  max-width: 100%;
+}
+.table-parent {
+  padding: 0.5rem 0 0.5rem 0;
+  display: block;
+}
+th.mat-column-position, td.mat-column-position {
+  padding-left: 1rem;
+}

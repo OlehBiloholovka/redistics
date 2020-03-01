@@ -1,0 +1,97 @@
+<table *ngIf="individualPlanPartnerRegistrations && individualPlanPartnerRegistrations.length!== 0"
+       mat-table [dataSource]="individualPlanPartnerRegistrations"
+       class="mat-elevation-z8 full-width border-table">
+  <ng-container matColumnDef="partner">
+    <th mat-header-cell *matHeaderCellDef> Партнер</th>
+    <td mat-cell class="left-align" *matCellDef="let individualRegistration"
+        [ngStyle]="getCellStyle(individualRegistration)">
+      {{individualRegistration['codeMSISDN']}}
+      <br>
+      {{individualRegistration['nameSeller']}}
+      <br>
+      {{individualRegistration['codeRDMS']}}
+      <br>
+      {{individualRegistration['nameRDMS']}}
+      <br>
+      {{individualRegistration['addressRDMS']}}
+      <br>
+      {{individualRegistration['nameCompany']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="codeNamePartner">
+    <th mat-header-cell *matHeaderCellDef> Партнер</th>
+    <td mat-cell class="left-align" *matCellDef="let individualRegistration" [ngStyle]="getCellStyle(individualRegistration)">
+      {{individualRegistration['codeMSISDN']}}
+      <br>
+      {{individualRegistration['nameSeller']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="codeNameRDMS">
+    <th mat-header-cell *matHeaderCellDef> Назва ТТ</th>
+    <td mat-cell class="left-align" *matCellDef="let individualRegistration" [ngStyle]="getCellStyle(individualRegistration)">
+      {{individualRegistration['codeRDMS']}}
+      <br>
+      {{individualRegistration['nameRDMS']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="addressRDMS">
+    <th mat-header-cell *matHeaderCellDef> Адреса ТТ</th>
+    <td mat-cell class="left-align" *matCellDef="let individualRegistration" [ngStyle]="getCellStyle(individualRegistration)">
+      {{individualRegistration['addressRDMS']}}
+      <br>
+      {{individualRegistration['nameCompany']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="typeRDMS">
+    <th mat-header-cell *matHeaderCellDef> Тип</th>
+    <td mat-cell *matCellDef="let individualRegistration" [ngStyle]="getCellStyle(individualRegistration)">
+      {{(isHandset$ | async) ? individualRegistration['typeRDMS'].charAt(0) : individualRegistration['typeRDMS']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="namePPD">
+    <th mat-header-cell *matHeaderCellDef> ПЗД</th>
+    <td mat-cell *matCellDef="let individualRegistration" [ngStyle]="getCellStyle(individualRegistration)">
+      {{individualRegistration['namePPD']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="sendCount">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">send</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let individualRegistration"
+        [ngStyle]="getCellStyle(individualRegistration)"> {{individualRegistration['sendCount']}} </td>
+  </ng-container>
+  <ng-container matColumnDef="onCheckingCount">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">hourglass_empty</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let individualRegistration"
+        [ngStyle]="getCellStyle(individualRegistration)"> {{individualRegistration['onCheckingCount']}} </td>
+  </ng-container>
+  <ng-container matColumnDef="checkedCount">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">check_circle</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let individualRegistration"
+        [ngStyle]="getCellStyle(individualRegistration)"> {{individualRegistration['checkedCount']}} </td>
+  </ng-container>
+  <ng-container matColumnDef="plan">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">assignment</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let individualRegistration"
+        [ngStyle]="getCellStyle(individualRegistration)"> {{individualRegistration['plan']}} </td>
+  </ng-container>
+  <ng-container matColumnDef="toMake">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">next_week</mat-icon>
+    </th>
+    <td mat-cell *matCellDef="let individualRegistration" [ngStyle]="getCellStyle(individualRegistration)">
+      {{individualRegistration['toMake']()}}({{individualRegistration['toMakeUnchecked']()}})
+    </td>
+  </ng-container>
+  <tr mat-header-row
+      *matHeaderRowDef="(isHandset$ | async) ? displayedColumnsHandset : displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: (isHandset$ | async) ? displayedColumnsHandset : displayedColumns;"
+      [ngStyle]="getRowStyle(row)"></tr>
+</table>
