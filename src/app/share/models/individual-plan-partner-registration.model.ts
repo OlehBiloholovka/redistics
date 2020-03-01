@@ -1,27 +1,26 @@
-import {OnCheckingCompletable} from '../classes/on-checking-completable';
 import {Partner} from './partner.model';
-import {applyMixins} from 'rxjs/internal-compatibility';
+import {MayBeCompletable} from '../interfaces/may-be-completable';
+import {RegistrationCounter} from '../classes/registration-counter';
 
-export class IndividualPlanPartnerRegistration implements Partner, OnCheckingCompletable {
-  category: string;
-  codeMSISDN: number;
-  codePPD: number;
-  codeRDMS: number;
-  headMSISDN: number;
-  plan: number;
-  sendCount: number;
+export class IndividualPlanPartnerRegistration extends Partner implements MayBeCompletable {
   checkedCount: number;
   onCheckingCount: number;
+  plan: number;
+  sendCount: number;
 
-  isCompleted: () => boolean;
-  toMake: () => number;
-  mayBeCompleted: () => boolean;
-  toMakeUnchecked: () => number;
+  isCompleted(): boolean {
+    return RegistrationCounter.isCompleted(this.plan, this.checkedCount);
+  }
 
-  constructor() {
-    this.sendCount = 0;
-    this.onCheckingCount = 0;
-    this.checkedCount = 0;
+  mayBeCompleted(): boolean {
+    return RegistrationCounter.isCompleted(this.plan, this.onCheckingCount);
+  }
+
+  toMake(): number {
+    return RegistrationCounter.toMake(this.plan, this.checkedCount);
+  }
+
+  toMakeUnchecked(): number {
+    return RegistrationCounter.toMake(this.plan, this.onCheckingCount);
   }
 }
-applyMixins(IndividualPlanPartnerRegistration, [Partner, OnCheckingCompletable]);

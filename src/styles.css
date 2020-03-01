@@ -26,3 +26,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   /*margin-right: 8px;*/
   /*margin-right: 8px;*/
 }
+.full-width {
+  width: 100%;
+  max-width: 100%;
+}
+.table-parent {
+  padding: 0.5rem 0 0.5rem 0;
+  display: block;
+}

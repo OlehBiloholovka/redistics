@@ -7,15 +7,6 @@
   padding-right: 1rem;
   align-content: center;
 }
-.table-parent {
-  padding: 0.5rem 0 0.5rem 0;
-  display: block;
-}
-.full-width {
-  width: 100%;
-  max-width: 100%;
-}
-
 .example-container {
   width: 100%;
   /*width: 400px;*/
