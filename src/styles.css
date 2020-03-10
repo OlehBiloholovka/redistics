@@ -37,3 +37,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 th.mat-column-position, td.mat-column-position {
   padding-left: 1rem;
 }
+.active-link{
+  background-color: #f5f5f5;
+}

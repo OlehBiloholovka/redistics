@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ChartOptions} from '../dashboard.component';
 
 @Component({
@@ -8,38 +8,47 @@ import {ChartOptions} from '../dashboard.component';
 })
 export class SalaryDashboardComponent implements OnInit {
 
-  public chartOptions: Partial<ChartOptions>;
-
   constructor() {
     this.chartOptions = {
       series: [44, 105, 67, 83],
       chart: {
-        height: 350,
+        height: 300,
         type: 'radialBar'
       },
       plotOptions: {
         radialBar: {
           dataLabels: {
             name: {
-              fontSize: '22px'
+              fontSize: '1.5em'
             },
             value: {
-              fontSize: '32px'
+              fontSize: '1.5em'
             },
             total: {
-              fontSize: '36px',
+              fontSize: '1.75em',
               show: true,
-              label: 'Total',
+              label: 'Всього',
               formatter: () => '249'
             }
           }
         }
       },
-      labels: ['Apples', 'Oranges', 'Bananas', 'Berries']
+      stroke: {
+        lineCap: 'round',
+      },
+      labels: ['ППР', 'Партер', 'Активації', '% СП з АП']
     };
   }
 
+  public chartOptions: Partial<ChartOptions>;
+  @Output() getCardName: EventEmitter<string> = new EventEmitter<string>();
+
   ngOnInit(): void {
+    this.getCardName.emit('Винагорода');
   }
+
+  // onGetCardName() {
+  //   this.getCardName.emit('Винагорода');
+  // }
 
 }
