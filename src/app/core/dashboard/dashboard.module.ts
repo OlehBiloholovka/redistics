@@ -16,24 +16,26 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {DashboardCardModule} from './dashboard-card/dashboard-card.module';
 
 
 @NgModule({
   declarations: [DashboardComponent, PprDashboardComponent, SalaryDashboardComponent,
     IndividualDashboardComponent, PartnerDashboardComponent],
-    imports: [
-        CommonModule,
-        DashboardRoutingModule,
-        NgApexchartsModule,
-        MatGridListModule,
-        MatCardModule,
-        MatIconModule,
-        MatMenuModule,
-        MatButtonModule,
-        MatListModule,
-        MatTableModule,
-        MatProgressBarModule,
-    ]
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    NgApexchartsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatListModule,
+    MatTableModule,
+    MatProgressBarModule,
+    DashboardCardModule,
+  ]
 })
 export class DashboardModule {
 }
