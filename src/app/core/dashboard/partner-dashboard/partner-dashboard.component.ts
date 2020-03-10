@@ -14,7 +14,7 @@ export class PartnerDashboardComponent implements OnInit {
   employees: Employee[];
 
   constructor() {
-    this.dashboardCardName = 'Індивідуальний план';
+    this.dashboardCardName = 'Партнер 3+';
     this.userCode = 12345;
     this.radialBarSeries = [86, 109];
     this.employees = [
