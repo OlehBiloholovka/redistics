@@ -11,9 +11,11 @@ export class IndividualDashboardComponent implements OnInit {
   userCode: number;
   radialBarSeries: number[];
   employees: Employee[];
+  dataDate: number;
 
   constructor() {
     this.dashboardCardName = 'Індивідуальний план';
+    this.dataDate = Date.now() - 200000000;
     this.userCode = 12345;
     this.radialBarSeries = [12, 56];
     this.employees = [

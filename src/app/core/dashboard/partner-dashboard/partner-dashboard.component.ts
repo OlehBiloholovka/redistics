@@ -12,9 +12,11 @@ export class PartnerDashboardComponent implements OnInit {
   userCode: number;
   radialBarSeries: number[];
   employees: Employee[];
+  dataDate: number;
 
   constructor() {
     this.dashboardCardName = 'Партнер 3+';
+    this.dataDate = Date.now() - 400000000;
     this.userCode = 12345;
     this.radialBarSeries = [86, 109];
     this.employees = [

@@ -11,9 +11,11 @@ export class PprDashboardComponent implements OnInit {
   userCode: number;
   radialBarSeries: number[];
   employees: Employee[];
+  dataDate: number;
 
   constructor() {
     this.dashboardCardName = 'ППР';
+    this.dataDate = Date.now();
     this.userCode = 12345;
     this.radialBarSeries = [34, 76];
     this.employees = [

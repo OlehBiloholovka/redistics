@@ -1,15 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DashboardCardComponent } from './dashboard-card.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {DashboardCardComponent} from './dashboard-card.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {NgApexchartsModule} from 'ng-apexcharts';
-
+import {DashboardCardCalculationComponent} from './dashboard-card-calculation/dashboard-card-calculation.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
-  declarations: [DashboardCardComponent],
+  declarations: [DashboardCardComponent, DashboardCardCalculationComponent],
   exports: [
     DashboardCardComponent,
   ],
@@ -18,7 +21,11 @@ import {NgApexchartsModule} from 'ng-apexcharts';
     MatCardModule,
     MatTableModule,
     MatProgressBarModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    MatChipsModule,
+    MatButtonModule,
+    MatIconModule
   ]
 })
-export class DashboardCardModule { }
+export class DashboardCardModule {
+}

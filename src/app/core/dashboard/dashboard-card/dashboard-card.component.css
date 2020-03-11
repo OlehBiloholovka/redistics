@@ -1,18 +1,74 @@
-.dashboard-card {
+.flip-dashboard-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.flip-dashboard-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.rotate-card {
+  transform: rotateY(180deg);
+}
+
+.front-dashboard-card, .back-dashboard-card {
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
   right: 0.5rem;
   bottom: 1.5rem;
 }
+
+.back-dashboard-card {
+  transform: rotateY(180deg);
+}
+
+.front-dashboard-card, .back-dashboard-card {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+
 .dashboard-card-content {
   text-align: center;
 }
+
+.mat-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .mat-card-header {
+  display: flex;
+  flex-direction: column;
   justify-content: flex-end;
 }
+.mat-card-title, .mat-card-subtitle {
+  text-align: right;
+}
+
+.mat-card-content {
+  flex-grow: 1;
+}
+
+.mat-card-footer {
+  padding: 1rem;
+  display: flex;
+  justify-self: end;
+  justify-content: flex-end;
+}
+
 #chart {
   max-width: 350px;
+  margin-bottom: -80px !important;
 }
 
 .mat-table {
@@ -74,20 +130,23 @@ mat-progress-bar {
 .red-progress-bar > ::ng-deep .mat-progress-bar-fill::after {
   background-color: #FF4560;
 }
+
 .current-user-rank-row {
   background-color: #546E7A;
   /*color: white;*/
   border-radius: 1.25em;
 }
-.current-user-rank-row>td {
+
+.current-user-rank-row > td {
   color: white;
 }
-.current-user-rank-row>td:first-child {
+
+.current-user-rank-row > td:first-child {
   border-top-left-radius: 1.25em;
   border-bottom-left-radius: 1.25em;
 }
-.current-user-rank-row>td:last-child {
+
+.current-user-rank-row > td:last-child {
   border-top-right-radius: 1.25em;
   border-bottom-right-radius: 1.25em;
 }
-

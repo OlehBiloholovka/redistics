@@ -33,6 +33,7 @@ export class DashboardCardComponent implements OnInit {
   @Input() userCode!: number;
   @Input() dashboardCardName!: string;
   @Input() radialBarSeries!: number[];
+  @Input() dataDate: number;
   @Input() employees: Employee[];
   indicatorChartOptions: Partial<ChartOptions>;
   columns: string[] = ['index', 'name', 'progressBar', 'level'];
@@ -44,9 +45,10 @@ export class DashboardCardComponent implements OnInit {
     this.indicatorChartOptions = {
       series: this.radialBarSeries,
       chart: {
+        // width: 400,
         height: 300,
         type: 'radialBar',
-        offsetY: -20
+        offsetY: -20,
       },
       plotOptions: {
         radialBar: {
@@ -114,5 +116,9 @@ export class DashboardCardComponent implements OnInit {
     if (row.userCode === this.userCode) {
       return 'current-user-rank-row';
     }
+  }
+
+  rotateCard(dashboardCard: HTMLDivElement) {
+    dashboardCard.classList.toggle('rotate-card');
   }
 }

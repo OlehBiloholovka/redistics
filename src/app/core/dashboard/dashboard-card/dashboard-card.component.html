@@ -1,47 +1,76 @@
-<mat-card class="dashboard-card">
-  <mat-card-header>
-    <mat-card-title>
-      {{dashboardCardName}}
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="dashboard-card-content">
-    <table mat-table [dataSource]="employees">
-      <ng-container matColumnDef="index">
-        <td mat-cell *matCellDef="let el; let i = index;">
-          {{i + 1}}
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="name">
-        <td mat-cell *matCellDef="let el">
-          {{el['name']}}
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="progressBar">
-        <td mat-cell class="progress-td" *matCellDef="let el">
-          <mat-progress-bar
-            mode="determinate"
-            [class]="updateProgressBarColor(el['level'])"
-            [value]="el['level'] * 100"
-          ></mat-progress-bar>
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="level">
-        <td mat-cell class="progress-td" *matCellDef="let el">
-          {{el['level'] | percent}}
-        </td>
-      </ng-container>
-      <tr mat-row *matRowDef="let row; columns: columns" [ngClass]="updateRankTableRowColor(row)"></tr>
-    </table>
-    <div id="chart">
-      <apx-chart
-        [chart]="indicatorChartOptions.chart"
-        [fill]="indicatorChartOptions.fill"
-        [labels]="indicatorChartOptions.labels"
-        [plotOptions]="indicatorChartOptions.plotOptions"
-        [series]="indicatorChartOptions.series"
-        [stroke]="indicatorChartOptions.stroke"
-        [theme]="indicatorChartOptions.theme"
-      ></apx-chart>
-    </div>
-  </mat-card-content>
-</mat-card>
+<div class="flip-dashboard-container">
+  <div #dashboardCard class="flip-dashboard-card">
+    <mat-card class="front-dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{dashboardCardName}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{dataDate | date:'dd/MM/yyyy'}}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <table [dataSource]="employees" mat-table>
+          <ng-container matColumnDef="index">
+            <td *matCellDef="let el; let i = index;" mat-cell>
+              {{i + 1}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <td *matCellDef="let el" mat-cell>
+              {{el['name']}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="progressBar">
+            <td *matCellDef="let el" class="progress-td" mat-cell>
+              <mat-progress-bar
+                [class]="updateProgressBarColor(el['level'])"
+                [value]="el['level'] * 100"
+                mode="determinate"
+              ></mat-progress-bar>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="level">
+            <td *matCellDef="let el" class="progress-td" mat-cell>
+              {{el['level'] | percent}}
+            </td>
+          </ng-container>
+          <tr *matRowDef="let row; columns: columns" [ngClass]="updateRankTableRowColor(row)" mat-row></tr>
+        </table>
+        <div id="chart">
+          <apx-chart
+            [chart]="indicatorChartOptions.chart"
+            [fill]="indicatorChartOptions.fill"
+            [labels]="indicatorChartOptions.labels"
+            [plotOptions]="indicatorChartOptions.plotOptions"
+            [series]="indicatorChartOptions.series"
+            [stroke]="indicatorChartOptions.stroke"
+            [theme]="indicatorChartOptions.theme"
+          ></apx-chart>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+        <button #rotateButton (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </mat-card-footer>
+    </mat-card>
+    <mat-card class="back-dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          Розрахунок
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <app-dashboard-card-calculation></app-dashboard-card-calculation>
+      </mat-card-content>
+      <mat-card-footer>
+        <button (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+
+
