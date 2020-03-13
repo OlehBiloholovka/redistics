@@ -3,7 +3,16 @@
 <div class="plan-container">
   <div class="category-container">A</div>
   <div class="progress-container">
-    <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+    <app-dashboard-progress-bar
+      [progressValue]="40"
+      [prefixValue]="1.04 | percent"
+      [suffixValue]="0.06 | percent"
+      [firstProgressValue]="0.4 | percent"
+      [secondProgressValue]="0.6 | percent"
+      [firstUnderProgressValue]="'fact'"
+      [middleUnderProgressValue]="'/'"
+      [lastUnderProgressValue]="'plan'"
+    ></app-dashboard-progress-bar>
   </div>
   <div class="plan-result-container">105%</div>
 </div>
@@ -17,6 +26,5 @@
     [firstUnderProgressValue]="'fact'"
     [middleUnderProgressValue]="'/'"
     [lastUnderProgressValue]="'plan'"
-    [progressBarHeight]="2"
   ></app-dashboard-progress-bar>
 </div>
