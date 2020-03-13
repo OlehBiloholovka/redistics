@@ -9,6 +9,7 @@ import {DashboardCardCalculationComponent} from './dashboard-card-calculation/da
 import {MatChipsModule} from '@angular/material/chips';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {DashboardProgressBarModule} from './dashboard-progress-bar/dashboard-progress-bar.module';
 
 
 @NgModule({
@@ -16,16 +17,17 @@ import {MatIconModule} from '@angular/material/icon';
   exports: [
     DashboardCardComponent,
   ],
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatTableModule,
-    MatProgressBarModule,
-    NgApexchartsModule,
-    MatChipsModule,
-    MatButtonModule,
-    MatIconModule
-  ]
+    imports: [
+        CommonModule,
+        MatCardModule,
+        MatTableModule,
+        MatProgressBarModule,
+        NgApexchartsModule,
+        MatChipsModule,
+        MatButtonModule,
+        MatIconModule,
+        DashboardProgressBarModule
+    ]
 })
 export class DashboardCardModule {
 }

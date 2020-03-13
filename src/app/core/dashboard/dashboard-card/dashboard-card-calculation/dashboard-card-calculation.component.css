@@ -1,0 +1,30 @@
+.plan-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.progress-container {
+  border-radius: 0.5rem;
+  border: thin solid #546E7A;
+  height: 35px;
+  width: 50px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.category-container, .plan-result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+}
+.mat-progress-bar {
+  height: 1rem;
+}
+.category-container {
+  font-size: 150%;
+}
+.plan-result-container {
+
+}

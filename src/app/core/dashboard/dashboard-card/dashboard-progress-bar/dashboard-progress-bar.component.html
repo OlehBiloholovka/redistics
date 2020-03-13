@@ -1,0 +1,28 @@
+<div class="dashboard-progress-bar-container">
+  <div [style.height.rem]="progressBarHeight" class="dashboard-progress-bar-prefix-container">
+    <div [style.font-size.em]="progressBarFontSize" class="dashboard-progress-bar-prefix">{{prefixValue}}</div>
+  </div>
+  <div class="inner-dashboard-progress-bar-container">
+    <div [style.height.rem]="progressBarHeight" class="dashboard-progress-bar">
+      <div [style.height.rem]="progressBarHeight" class="dashboard-progress-first">
+        <div [style.font-size.em]="progressBarFontSize"
+             class="dashboard-progress-first-value">{{firstProgressValue}}</div>
+      </div>
+      <div [style.height.rem]="progressBarHeight" class="dashboard-progress-second">
+        <div [style.font-size.em]="progressBarFontSize"
+             class="dashboard-progress-second-value">{{secondProgressValue}}</div>
+      </div>
+    </div>
+    <div class="under-progress-bar-labels-container">
+      <div [style.font-size.em]="progressBarFontSize"
+           class="first-under-progress-bar-label">{{firstUnderProgressValue}}</div>
+      <div [style.font-size.em]="progressBarFontSize"
+           class="middle-under-progress-bar-label">{{middleUnderProgressValue}}</div>
+      <div [style.font-size.em]="progressBarFontSize"
+           class="last-under-progress-bar-label">{{lastUnderProgressValue}}</div>
+    </div>
+  </div>
+  <div [style.height.rem]="progressBarHeight" class="dashboard-progress-bar-suffix-container">
+    <div [style.font-size.em]="progressBarFontSize" class="dashboard-progress-bar-suffix">{{suffixValue}}</div>
+  </div>
+</div>

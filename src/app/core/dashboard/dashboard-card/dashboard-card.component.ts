@@ -35,6 +35,7 @@ export class DashboardCardComponent implements OnInit {
   @Input() radialBarSeries!: number[];
   @Input() dataDate: number;
   @Input() employees: Employee[];
+  @Input() test: string;
   indicatorChartOptions: Partial<ChartOptions>;
   columns: string[] = ['index', 'name', 'progressBar', 'level'];
 
