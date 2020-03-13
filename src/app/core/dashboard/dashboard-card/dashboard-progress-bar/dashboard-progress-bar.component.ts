@@ -18,6 +18,7 @@ export class DashboardProgressBarComponent implements OnInit {
   @Input() lastUnderProgressValue: string;
   @Input() progressBarHeight: number;
   @Input() progressBarFontSize: number;
+  @Input() progressBarFontColor: string;
 
   constructor() {
   }
