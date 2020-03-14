@@ -1,30 +1,37 @@
 <div class="dashboard-progress-bar-container">
-  <div [style.height.rem]="progressBarHeight" class="dashboard-progress-bar-prefix-container">
-    <div [style.color]="progressBarFontColor" [style.font-size.em]="progressBarFontSize"
-         class="dashboard-progress-bar-prefix">{{prefixValue}}</div>
+  <div [style.height.rem]="dashboardProgressBar.progressBarHeight" class="dashboard-progress-bar-prefix-container">
+    <div [style.color]="dashboardProgressBar.progressBarFontColor"
+         [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+         class="dashboard-progress-bar-prefix">{{dashboardProgressBar.prefixValue}}</div>
   </div>
   <div class="inner-dashboard-progress-bar-container">
-    <div [style.height.rem]="progressBarHeight" class="dashboard-progress-bar">
-      <div [style.height.rem]="progressBarHeight" class="dashboard-progress-first">
-        <div [style.font-size.em]="progressBarFontSize"
-             class="dashboard-progress-first-value">{{firstProgressValue}}</div>
+    <div [style.height.rem]="dashboardProgressBar.progressBarHeight" class="dashboard-progress-bar">
+      <div [style.height.rem]="dashboardProgressBar.progressBarHeight"
+           [style.width]="dashboardProgressBar.firstProgressValue" class="dashboard-progress-first">
+        <div [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+             class="dashboard-progress-first-value">{{dashboardProgressBar.firstProgressValueLabel}}</div>
       </div>
-      <div [style.height.rem]="progressBarHeight" class="dashboard-progress-second">
-        <div [style.font-size.em]="progressBarFontSize"
-             class="dashboard-progress-second-value">{{secondProgressValue}}</div>
+      <div [style.height.rem]="dashboardProgressBar.progressBarHeight"
+           [style.width]="dashboardProgressBar.secondProgressValue" class="dashboard-progress-second">
+        <div [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+             class="dashboard-progress-second-value">{{dashboardProgressBar.secondProgressValueLabel}}</div>
       </div>
     </div>
     <div class="under-progress-bar-labels-container">
-      <div [style.color]="progressBarFontColor" [style.font-size.em]="progressBarFontSize"
-           class="first-under-progress-bar-label">{{firstUnderProgressValue}}</div>
-      <div [style.color]="progressBarFontColor" [style.font-size.em]="progressBarFontSize"
-           class="middle-under-progress-bar-label">{{middleUnderProgressValue}}</div>
-      <div [style.color]="progressBarFontColor" [style.font-size.em]="progressBarFontSize"
-           class="last-under-progress-bar-label">{{lastUnderProgressValue}}</div>
+      <div [style.color]="dashboardProgressBar.progressBarFontColor"
+           [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+           class="first-under-progress-bar-label">{{dashboardProgressBar.firstUnderProgressValue}}</div>
+      <div [style.color]="dashboardProgressBar.progressBarFontColor"
+           [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+           class="middle-under-progress-bar-label">{{dashboardProgressBar.middleUnderProgressValue}}</div>
+      <div [style.color]="dashboardProgressBar.progressBarFontColor"
+           [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+           class="last-under-progress-bar-label">{{dashboardProgressBar.lastUnderProgressValue}}</div>
     </div>
   </div>
-  <div [style.height.rem]="progressBarHeight" class="dashboard-progress-bar-suffix-container">
-    <div [style.color]="progressBarFontColor" [style.font-size.em]="progressBarFontSize"
-         class="dashboard-progress-bar-suffix">{{suffixValue}}</div>
+  <div [style.height.rem]="dashboardProgressBar.progressBarHeight" class="dashboard-progress-bar-suffix-container">
+    <div [style.color]="dashboardProgressBar.progressBarFontColor"
+         [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+         class="dashboard-progress-bar-suffix">{{dashboardProgressBar.suffixValue}}</div>
   </div>
 </div>

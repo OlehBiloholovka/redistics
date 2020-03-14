@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {DashboardProgressBar} from './dashboard-progress-bar.model';
 
 @Component({
   selector: 'app-dashboard-progress-bar',
@@ -7,18 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class DashboardProgressBarComponent implements OnInit {
 
-  @Input() prefixValue: string;
-  @Input() suffixValue: string;
-  @Input() firstProgressValue: string;
-  @Input() secondProgressValue: string;
-  @Input() progressValue: number;
-  @Input() progressWidth: number;
-  @Input() firstUnderProgressValue: string;
-  @Input() middleUnderProgressValue: string;
-  @Input() lastUnderProgressValue: string;
-  @Input() progressBarHeight: number;
-  @Input() progressBarFontSize: number;
-  @Input() progressBarFontColor: string;
+  @Input() dashboardProgressBar: DashboardProgressBar;
 
   constructor() {
   }

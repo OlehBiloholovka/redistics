@@ -10,6 +10,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {DashboardProgressBarModule} from './dashboard-progress-bar/dashboard-progress-bar.module';
+import {DashboardCategoryProgressBoardModule} from './dashboard-category-progress-board/dashboard-category-progress-board.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {DashboardProgressBarModule} from './dashboard-progress-bar/dashboard-pro
         MatChipsModule,
         MatButtonModule,
         MatIconModule,
-        DashboardProgressBarModule
+        DashboardProgressBarModule,
+        DashboardCategoryProgressBoardModule
     ]
 })
 export class DashboardCardModule {
