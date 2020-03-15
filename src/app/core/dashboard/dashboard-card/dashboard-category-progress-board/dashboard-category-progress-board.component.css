@@ -6,7 +6,8 @@
 .progress-container {
   border-radius: 0.5rem;
   border: thin solid #546E7A;
-  height: 35px;
+  min-height: 35px;
+  height: fit-content;
   width: 50px;
   flex-grow: 1;
   display: flex;
@@ -34,4 +35,10 @@
 }
 .plan-result-container {
 
+}
+.white-background {
+  background-color: #FFF;
+}
+.white-font {
+  color: #FFF;
 }

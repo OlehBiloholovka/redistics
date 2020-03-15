@@ -18,3 +18,7 @@
 .category-boards-container > * {
   margin-bottom: 0.25rem;
 }
+
+.grey-background {
+  background-color: #546E7A;
+}

@@ -13,6 +13,8 @@ export class DashboardCardCalculationComponent implements OnInit {
   dashboardProgressBarB: DashboardProgressBar;
   planResultB: string;
   categoryB: string;
+  dashboardShareProgressBar: DashboardProgressBar;
+  dashboardResultProgressBar: DashboardProgressBar;
 
   constructor() {
   }
@@ -38,6 +40,20 @@ export class DashboardCardCalculationComponent implements OnInit {
     this.dashboardProgressBarB.middleUnderProgressValue = '/';
     this.dashboardProgressBarB.lastUnderProgressValue = 'plan: 65%';
     this.dashboardProgressBarB.progressBarFontColor = '#fff';
+    this.dashboardShareProgressBar = new DashboardProgressBar();
+    this.dashboardShareProgressBar.prefixValue = '104%*';
+    this.dashboardShareProgressBar.suffixValue = '*6%';
+    this.dashboardShareProgressBar.firstProgressValue = '80%';
+    this.dashboardShareProgressBar.firstProgressValueLabel = '80%';
+    this.dashboardShareProgressBar.secondProgressValue = '20%';
+    this.dashboardShareProgressBar.secondProgressValueLabel = '20%';
+    this.dashboardResultProgressBar = new DashboardProgressBar();
+    this.dashboardResultProgressBar.firstProgressValue = '94%';
+    this.dashboardResultProgressBar.firstProgressValueLabel = '94%';
+    this.dashboardResultProgressBar.secondProgressValue = '5%';
+    this.dashboardResultProgressBar.secondProgressValueLabel = '5%';
+    this.dashboardResultProgressBar.middleUnderProgressValue = '98%';
+    this.dashboardResultProgressBar.middleUnderProgressBarFontSize = '1.5';
   }
 
 }

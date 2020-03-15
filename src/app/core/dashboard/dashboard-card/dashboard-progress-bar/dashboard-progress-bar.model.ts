@@ -9,6 +9,7 @@ export class DashboardProgressBar {
   middleUnderProgressValue?: string;
   lastUnderProgressValue?: string;
   progressBarHeight?: number;
-  progressBarFontSize?: number;
+  progressBarFontSize?: string;
   progressBarFontColor?: string;
+  middleUnderProgressBarFontSize?: string;
 }
