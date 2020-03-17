@@ -15,6 +15,7 @@ import { DashboardRankComponent } from './dashboard-rank/dashboard-rank.componen
 import { DashboardProgressRadialBarComponent } from './dashboard-progress-radial-bar/dashboard-progress-radial-bar.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {FormsModule} from '@angular/forms';
+import {MatSortModule} from '@angular/material/sort';
 
 
 @NgModule({
@@ -22,20 +23,21 @@ import {FormsModule} from '@angular/forms';
   exports: [
     DashboardCardComponent,
   ],
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatTableModule,
-    MatProgressBarModule,
-    NgApexchartsModule,
-    MatChipsModule,
-    MatButtonModule,
-    MatIconModule,
-    DashboardProgressBarModule,
-    DashboardCategoryProgressBoardModule,
-    MatSlideToggleModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        MatCardModule,
+        MatTableModule,
+        MatProgressBarModule,
+        NgApexchartsModule,
+        MatChipsModule,
+        MatButtonModule,
+        MatIconModule,
+        DashboardProgressBarModule,
+        DashboardCategoryProgressBoardModule,
+        MatSlideToggleModule,
+        FormsModule,
+        MatSortModule
+    ]
 })
 export class DashboardCardModule {
 }

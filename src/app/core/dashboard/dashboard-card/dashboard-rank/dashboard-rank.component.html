@@ -1,4 +1,4 @@
-<table [dataSource]="employees" mat-table>
+<table [dataSource]="dataSource" matSort mat-table>
   <ng-container matColumnDef="index">
     <td *matCellDef="let el; let i = index;" mat-cell>
       {{i + 1}}

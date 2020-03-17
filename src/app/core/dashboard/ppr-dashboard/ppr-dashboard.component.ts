@@ -20,9 +20,9 @@ export class PprDashboardComponent implements OnInit {
     this.radialBarSeries = [34, 76];
     this.employees = [
       {name: 'Hot', level: 1.05},
-      {name: 'Petriv', level: 0.78},
       {name: 'Shkvarok', level: 0.56, userCode: 12345},
-      {name: 'Petrivkyi', level: 0.32}
+      {name: 'Petrivkyi', level: 0.32},
+      {name: 'Petriv', level: 0.78}
     ];
   }
 
