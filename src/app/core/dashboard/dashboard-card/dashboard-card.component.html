@@ -6,48 +6,18 @@
           {{dashboardCardName}}
         </mat-card-title>
         <mat-card-subtitle>
+          <div>
+            <mat-slide-toggle [(ngModel)]="checkedData" color="primary">Перевірено</mat-slide-toggle>
+          </div>
           {{dataDate | date:'dd/MM/yyyy'}}
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <table [dataSource]="employees" mat-table>
-          <ng-container matColumnDef="index">
-            <td *matCellDef="let el; let i = index;" mat-cell>
-              {{i + 1}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="name">
-            <td *matCellDef="let el" mat-cell>
-              {{el['name']}}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="progressBar">
-            <td *matCellDef="let el" class="progress-td" mat-cell>
-              <mat-progress-bar
-                [class]="updateProgressBarColor(el['level'])"
-                [value]="el['level'] * 100"
-                mode="determinate"
-              ></mat-progress-bar>
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="level">
-            <td *matCellDef="let el" class="progress-td" mat-cell>
-              {{el['level'] | percent}}
-            </td>
-          </ng-container>
-          <tr *matRowDef="let row; columns: columns" [ngClass]="updateRankTableRowColor(row)" mat-row></tr>
-        </table>
-        <div id="chart">
-          <apx-chart
-            [chart]="indicatorChartOptions.chart"
-            [fill]="indicatorChartOptions.fill"
-            [labels]="indicatorChartOptions.labels"
-            [plotOptions]="indicatorChartOptions.plotOptions"
-            [series]="indicatorChartOptions.series"
-            [stroke]="indicatorChartOptions.stroke"
-            [theme]="indicatorChartOptions.theme"
-          ></apx-chart>
-        </div>
+        <app-dashboard-rank
+          [employees]="employees"
+          [userCode]="userCode"
+        ></app-dashboard-rank>
+        <app-dashboard-progress-radial-bar [radialBarSeries]="radialBarSeries"></app-dashboard-progress-radial-bar>
       </mat-card-content>
       <mat-card-footer>
         <button #rotateButton (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
@@ -60,6 +30,10 @@
         <mat-card-title>
           Розрахунок
         </mat-card-title>
+        <mat-card-subtitle>
+          <mat-slide-toggle [(ngModel)]="checkedData" color="primary">Перевірено</mat-slide-toggle>
+          {{dataDate | date:'dd/MM/yyyy'}}
+        </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
         <app-dashboard-card-calculation></app-dashboard-card-calculation>

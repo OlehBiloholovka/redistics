@@ -11,25 +11,31 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {DashboardProgressBarModule} from './dashboard-progress-bar/dashboard-progress-bar.module';
 import {DashboardCategoryProgressBoardModule} from './dashboard-category-progress-board/dashboard-category-progress-board.module';
+import { DashboardRankComponent } from './dashboard-rank/dashboard-rank.component';
+import { DashboardProgressRadialBarComponent } from './dashboard-progress-radial-bar/dashboard-progress-radial-bar.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [DashboardCardComponent, DashboardCardCalculationComponent],
+  declarations: [DashboardCardComponent, DashboardCardCalculationComponent, DashboardRankComponent, DashboardProgressRadialBarComponent],
   exports: [
     DashboardCardComponent,
   ],
-    imports: [
-        CommonModule,
-        MatCardModule,
-        MatTableModule,
-        MatProgressBarModule,
-        NgApexchartsModule,
-        MatChipsModule,
-        MatButtonModule,
-        MatIconModule,
-        DashboardProgressBarModule,
-        DashboardCategoryProgressBoardModule
-    ]
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatTableModule,
+    MatProgressBarModule,
+    NgApexchartsModule,
+    MatChipsModule,
+    MatButtonModule,
+    MatIconModule,
+    DashboardProgressBarModule,
+    DashboardCategoryProgressBoardModule,
+    MatSlideToggleModule,
+    FormsModule
+  ]
 })
 export class DashboardCardModule {
 }

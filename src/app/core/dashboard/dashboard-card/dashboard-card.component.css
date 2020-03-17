@@ -11,12 +11,15 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 1s;
+  transition: transform 1.5s;
   transform-style: preserve-3d;
 }
 
 .rotate-card {
   transform: rotateY(180deg);
+}
+.rotate-card * {
+  z-index: 0;
 }
 
 .front-dashboard-card, .back-dashboard-card {
@@ -54,6 +57,11 @@
 .mat-card-title, .mat-card-subtitle {
   text-align: right;
 }
+.mat-card-subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 .mat-card-content {
   flex-grow: 1;
@@ -64,89 +72,4 @@
   display: flex;
   justify-self: end;
   justify-content: flex-end;
-}
-
-#chart {
-  max-width: 350px;
-  margin-bottom: -80px !important;
-}
-
-.mat-table {
-  width: 100%;
-}
-
-td.progress-td {
-  width: 2rem;
-  max-width: 3.5rem;
-}
-
-.mat-row {
-  height: fit-content;
-}
-
-mat-progress-bar {
-  height: 0.5rem;
-  width: 3rem;
-  border-radius: 1.25em;
-}
-
-.mat-cell {
-  padding-left: 0.25rem;
-  text-align: left;
-}
-
-.mat-cell:first-child {
-  width: 0.5rem;
-  max-width: 3rem;
-  padding: 0 0.25rem;
-}
-
-.mat-cell:last-child {
-  padding-right: 0.25rem;
-  text-align: right;
-}
-
-::ng-deep .mat-progress-bar-fill::after {
-  background-color: #00E396;
-  border-radius: 1.25em;
-}
-
-::ng-deep .mat-progress-bar-buffer {
-  background: #f2f2f2;
-}
-
-.green-progress-bar > ::ng-deep .mat-progress-bar-fill::after {
-  background-color: #00E396;
-}
-
-.yellow-progress-bar > ::ng-deep .mat-progress-bar-fill::after {
-  background-color: #e7f436;
-}
-
-.orange-progress-bar > ::ng-deep .mat-progress-bar-fill::after {
-  background-color: #FEB019;
-}
-
-.red-progress-bar > ::ng-deep .mat-progress-bar-fill::after {
-  background-color: #FF4560;
-}
-
-.current-user-rank-row {
-  background-color: #546E7A;
-  /*color: white;*/
-  border-radius: 1.25em;
-}
-
-.current-user-rank-row > td {
-  color: white;
-}
-
-.current-user-rank-row > td:first-child {
-  border-top-left-radius: 1.25em;
-  border-bottom-left-radius: 1.25em;
-}
-
-.current-user-rank-row > td:last-child {
-  border-top-right-radius: 1.25em;
-  border-bottom-right-radius: 1.25em;
 }
