@@ -9,18 +9,19 @@
           <div>
             <mat-slide-toggle [(ngModel)]="checkedData" color="primary">Перевірено</mat-slide-toggle>
           </div>
-          {{dataDate | date:'dd/MM/yyyy'}}
+          {{registrationIndicator.calculationDate | date:'dd/MM/yyyy'}}
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
         <app-dashboard-rank
+          [isChecked]="checkedData"
           [employees]="employees"
-          [userCode]="userCode"
+          [userCode]="registrationIndicator.codePPD"
         ></app-dashboard-rank>
         <app-dashboard-progress-radial-bar [radialBarSeries]="radialBarSeries"></app-dashboard-progress-radial-bar>
       </mat-card-content>
       <mat-card-footer>
-        <button #rotateButton (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
+        <button (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
           <mat-icon>arrow_forward</mat-icon>
         </button>
       </mat-card-footer>
@@ -32,11 +33,14 @@
         </mat-card-title>
         <mat-card-subtitle>
           <mat-slide-toggle [(ngModel)]="checkedData" color="primary">Перевірено</mat-slide-toggle>
-          {{dataDate | date:'dd/MM/yyyy'}}
+          {{registrationIndicator.calculationDate | date:'dd/MM/yyyy'}}
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <app-dashboard-card-calculation></app-dashboard-card-calculation>
+        <app-dashboard-card-calculation
+          [isChecked]="checkedData"
+          [registrationIndicator]="registrationIndicator"
+        ></app-dashboard-card-calculation>
       </mat-card-content>
       <mat-card-footer>
         <button (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>

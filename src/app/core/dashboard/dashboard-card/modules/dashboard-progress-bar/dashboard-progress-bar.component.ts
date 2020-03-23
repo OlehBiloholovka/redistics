@@ -15,5 +15,4 @@ export class DashboardProgressBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

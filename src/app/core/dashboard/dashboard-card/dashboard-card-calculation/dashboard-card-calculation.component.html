@@ -2,23 +2,16 @@
   <div class="category-boards-container">
     <div>
       <app-dashboard-category-progress-board
-        [category]="categoryA"
-        [planResult]="planResultA | percent"
-        [dashboardProgressBar]="dashboardProgressBarA"
+        [dashboardCategoryBoard]="aCategoryProgressBoard"
       ></app-dashboard-category-progress-board>
     </div>
     <app-dashboard-category-progress-board
-      [category]="categoryB"
-      [planResult]="planResultB | percent"
-      [dashboardProgressBar]="dashboardProgressBarB"
+      [dashboardCategoryBoard]="bCategoryProgressBoard"
     ></app-dashboard-category-progress-board>
   </div>
   <div class="category-boards-container grey-background">
     <app-dashboard-category-share-board
-      [categoryA]="categoryA"
-      [categoryB]="categoryB"
-      [dashboardShareProgressBar]="dashboardShareProgressBar"
-      [dashboardResultProgressBar]="dashboardResultProgressBar"
+      [dashboardCategoryBoard]="categoryShareBoard"
     ></app-dashboard-category-share-board>
   </div>
 </div>

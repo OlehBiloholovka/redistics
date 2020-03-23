@@ -9,8 +9,8 @@ import {DashboardCardCalculationComponent} from './dashboard-card-calculation/da
 import {MatChipsModule} from '@angular/material/chips';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {DashboardProgressBarModule} from './dashboard-progress-bar/dashboard-progress-bar.module';
-import {DashboardCategoryProgressBoardModule} from './dashboard-category-progress-board/dashboard-category-progress-board.module';
+import {DashboardProgressBarModule} from './modules/dashboard-progress-bar/dashboard-progress-bar.module';
+import {DashboardCategoryBoardModule} from './modules/dashboard-category-board/dashboard-category-board.module';
 import { DashboardRankComponent } from './dashboard-rank/dashboard-rank.component';
 import { DashboardProgressRadialBarComponent } from './dashboard-progress-radial-bar/dashboard-progress-radial-bar.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -33,7 +33,7 @@ import {MatSortModule} from '@angular/material/sort';
         MatButtonModule,
         MatIconModule,
         DashboardProgressBarModule,
-        DashboardCategoryProgressBoardModule,
+        DashboardCategoryBoardModule,
         MatSlideToggleModule,
         FormsModule,
         MatSortModule

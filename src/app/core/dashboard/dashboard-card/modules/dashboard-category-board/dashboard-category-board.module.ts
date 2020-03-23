@@ -5,7 +5,6 @@ import {DashboardProgressBarModule} from '../dashboard-progress-bar/dashboard-pr
 import { DashboardCategoryShareBoardComponent } from './dashboard-category-share-board/dashboard-category-share-board.component';
 
 
-
 @NgModule({
   declarations: [DashboardCategoryProgressBoardComponent, DashboardCategoryShareBoardComponent],
   exports: [
@@ -17,4 +16,4 @@ import { DashboardCategoryShareBoardComponent } from './dashboard-category-share
     DashboardProgressBarModule
   ]
 })
-export class DashboardCategoryProgressBoardModule { }
+export class DashboardCategoryBoardModule { }

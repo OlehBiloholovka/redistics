@@ -1,6 +1,15 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {ChartComponent} from 'ng-apexcharts';
-import {ChartOptions} from '../dashboard-card.component';
+import {ApexChart, ApexFill, ApexNonAxisChartSeries, ApexPlotOptions, ApexStroke, ApexTheme, ChartComponent} from 'ng-apexcharts';
+
+export interface ChartOptions {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  labels: string[];
+  plotOptions: ApexPlotOptions;
+  fill: ApexFill;
+  stroke: ApexStroke;
+  theme: ApexTheme;
+}
 
 @Component({
   selector: 'app-dashboard-progress-radial-bar',

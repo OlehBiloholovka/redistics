@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DashboardProgressBar} from '../../dashboard-progress-bar/dashboard-progress-bar.model';
+import {DashboardCategoryBoard} from '../dashboard-category-board.model';
 
 @Component({
   selector: 'app-dashboard-category-share-board',
@@ -7,10 +7,7 @@ import {DashboardProgressBar} from '../../dashboard-progress-bar/dashboard-progr
   styleUrls: ['../dashboard-category-progress-board/dashboard-category-progress-board.component.css']
 })
 export class DashboardCategoryShareBoardComponent implements OnInit {
-  @Input() categoryA: string;
-  @Input() categoryB: string;
-  @Input() dashboardShareProgressBar: DashboardProgressBar;
-  @Input() dashboardResultProgressBar: DashboardProgressBar;
+  @Input() dashboardCategoryBoard: DashboardCategoryBoard;
 
   constructor() { }
 

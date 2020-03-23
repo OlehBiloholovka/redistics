@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DashboardProgressBar} from '../../dashboard-progress-bar/dashboard-progress-bar.model';
+import {DashboardCategoryBoard} from '../dashboard-category-board.model';
 
 @Component({
   selector: 'app-dashboard-category-progress-board',
@@ -8,9 +8,7 @@ import {DashboardProgressBar} from '../../dashboard-progress-bar/dashboard-progr
 })
 export class DashboardCategoryProgressBoardComponent implements OnInit {
 
-  @Input() category: string;
-  @Input() planResult: string;
-  @Input() dashboardProgressBar: DashboardProgressBar;
+  @Input() dashboardCategoryBoard: DashboardCategoryBoard;
 
   constructor() {
   }

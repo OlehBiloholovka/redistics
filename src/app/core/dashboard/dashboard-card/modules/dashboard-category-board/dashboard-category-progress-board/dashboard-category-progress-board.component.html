@@ -1,0 +1,9 @@
+<div class="category-progress-board-container">
+  <div class="category-container">{{dashboardCategoryBoard.prefixBoardLabel}}</div>
+  <div class="progress-container">
+    <app-dashboard-progress-bar
+      [dashboardProgressBar]="dashboardCategoryBoard.progressBars[0]"
+    ></app-dashboard-progress-bar>
+  </div>
+  <div class="plan-result-container">{{dashboardCategoryBoard.suffixBoardLabel}}</div>
+</div>

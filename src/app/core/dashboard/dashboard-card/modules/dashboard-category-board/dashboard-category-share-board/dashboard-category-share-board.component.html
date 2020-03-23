@@ -1,0 +1,12 @@
+<div class="category-progress-board-container">
+  <div class="category-container white-font">{{dashboardCategoryBoard.prefixBoardLabel}}</div>
+  <div class="progress-container white-background">
+    <app-dashboard-progress-bar
+      [dashboardProgressBar]="dashboardCategoryBoard.progressBars[0]"
+    ></app-dashboard-progress-bar>
+    <app-dashboard-progress-bar
+      [dashboardProgressBar]="dashboardCategoryBoard.progressBars[1]"
+    ></app-dashboard-progress-bar>
+  </div>
+  <div class="category-container white-font">{{dashboardCategoryBoard.suffixBoardLabel}}</div>
+</div>

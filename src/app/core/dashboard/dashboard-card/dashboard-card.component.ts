@@ -1,26 +1,11 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {
-  ApexNonAxisChartSeries,
-  ApexPlotOptions,
-  ApexChart,
-  ApexFill,
-  ChartComponent, ApexStroke, ApexTheme
-} from 'ng-apexcharts';
-
-export interface ChartOptions {
-  series: ApexNonAxisChartSeries;
-  chart: ApexChart;
-  labels: string[];
-  plotOptions: ApexPlotOptions;
-  fill: ApexFill;
-  stroke: ApexStroke;
-  theme: ApexTheme;
-}
+import {Component, Input, OnInit} from '@angular/core';
+import {RegistrationIndicator} from '../../../share/models/registration-indicator.model';
 
 export interface Employee {
   name: string;
   userCode?: number;
-  level: number;
+  checkedLevel: number;
+  onCheckingLevel: number;
 }
 
 @Component({
@@ -29,18 +14,20 @@ export interface Employee {
   styleUrls: ['./dashboard-card.component.css']
 })
 export class DashboardCardComponent implements OnInit {
-  @ViewChild('chart') chart: ChartComponent;
-  @Input() userCode!: number;
+  @Input() registrationIndicator: RegistrationIndicator;
   @Input() dashboardCardName!: string;
-  @Input() radialBarSeries!: number[];
-  @Input() dataDate: number;
   @Input() employees: Employee[];
   checkedData: boolean;
+  radialBarSeries!: number[];
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.radialBarSeries = [
+      Math.round(this.registrationIndicator.calculations.checkedIndicator() * 100),
+      Math.round(this.registrationIndicator.calculations.onCheckingIndicator() * 100)
+    ];
   }
 
   rotateCard(dashboardCard: HTMLDivElement) {

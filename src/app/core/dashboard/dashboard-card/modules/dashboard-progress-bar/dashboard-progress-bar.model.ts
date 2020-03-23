@@ -1,7 +1,7 @@
 export class DashboardProgressBar {
   prefixValue?: string;
-  suffixValue?: string;
-  firstProgressValueLabel?: string;
+  suffixValue?: string | number;
+  firstProgressValueLabel?: string | number;
   secondProgressValueLabel?: string;
   firstProgressValue: string;
   secondProgressValue?: string;
