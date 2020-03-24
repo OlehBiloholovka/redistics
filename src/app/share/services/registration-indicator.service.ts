@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {RegistrationIndicator} from '../models/registration-indicator.model';
 import {RegistrationIndicatorCalculation} from '../models/registration-indicator-calculation.model';
 
@@ -7,7 +7,8 @@ import {RegistrationIndicatorCalculation} from '../models/registration-indicator
 })
 export class RegistrationIndicatorService {
 
-  constructor() { }
+  constructor() {
+  }
 
   getPprRegistrationIndicator(): RegistrationIndicator {
     const calculation = new RegistrationIndicatorCalculation();
@@ -50,7 +51,7 @@ export class RegistrationIndicatorService {
     registrationIndicator.codeSupervisor = 123;
     registrationIndicator.nameSupervisor = 'Andreichuk';
     registrationIndicator.nameExpert = 'Oleh';
-    registrationIndicator.calculationDate =  Date.now() - 400000000;
+    registrationIndicator.calculationDate = Date.now() - 400000000;
     return registrationIndicator;
   }
 
@@ -72,8 +73,9 @@ export class RegistrationIndicatorService {
     registrationIndicator.codeSupervisor = 123;
     registrationIndicator.nameSupervisor = 'Andreichuk';
     registrationIndicator.nameExpert = 'Oleh';
-    registrationIndicator.calculationDate =  Date.now() - 200000000;
+    registrationIndicator.calculationDate = Date.now() - 200000000;
     return registrationIndicator;
 
   }
+
 }

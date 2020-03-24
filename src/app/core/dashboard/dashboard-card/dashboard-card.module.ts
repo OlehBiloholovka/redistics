@@ -16,10 +16,17 @@ import { DashboardProgressRadialBarComponent } from './dashboard-progress-radial
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {FormsModule} from '@angular/forms';
 import {MatSortModule} from '@angular/material/sort';
+import { DashboardSalaryRadialBarComponent } from './dashboard-salary-radial-bar/dashboard-salary-radial-bar.component';
 
 
 @NgModule({
-  declarations: [DashboardCardComponent, DashboardCardCalculationComponent, DashboardRankComponent, DashboardProgressRadialBarComponent],
+  declarations: [
+    DashboardCardComponent,
+    DashboardCardCalculationComponent,
+    DashboardRankComponent,
+    DashboardProgressRadialBarComponent,
+    DashboardSalaryRadialBarComponent
+  ],
   exports: [
     DashboardCardComponent,
   ],

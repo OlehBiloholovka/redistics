@@ -18,6 +18,7 @@
 .rotate-card {
   transform: rotateY(180deg);
 }
+
 .rotate-card * {
   z-index: 0;
 }
@@ -54,9 +55,11 @@
   flex-direction: column;
   justify-content: flex-end;
 }
+
 .mat-card-title, .mat-card-subtitle {
   text-align: right;
 }
+
 .mat-card-subtitle {
   display: flex;
   flex-direction: row;
@@ -76,4 +79,13 @@
   display: flex;
   justify-self: end;
   justify-content: flex-end;
+}
+
+.footer-label {
+  color: #FF4560;
+  font-size: 1.5rem;
+  font-family: Helvetica, Arial, sans-serifs, serif;
+  font-weight: 600;
+  width: 100%;
+  justify-self: center;
 }
