@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {RegistrationIndicator} from '../models/registration-indicator.model';
 import {RegistrationIndicatorCalculation} from '../models/registration-indicator-calculation.model';
+import {Employee} from '../../core/dashboard/dashboard-card/dashboard-card.component';
 
 @Injectable({
   providedIn: 'root'
@@ -76,6 +77,33 @@ export class RegistrationIndicatorService {
     registrationIndicator.calculationDate = Date.now() - 200000000;
     return registrationIndicator;
 
+  }
+
+  getPprEmployeesRank(): Employee[] {
+    return [
+      {name: 'Hot', checkedLevel: 0.85, onCheckingLevel: 1.05},
+      {name: 'Shkvarok', checkedLevel: 0.56, onCheckingLevel: 1.25, userCode: 12345},
+      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.42},
+      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.89}
+    ];
+  }
+
+  getPartnerEmployeesRank(): Employee[] {
+    return [
+      {name: 'Hot', checkedLevel: 0.35, onCheckingLevel: 0.54},
+      {name: 'Petriv', checkedLevel: 0.28, onCheckingLevel: 0.78},
+      {name: 'Shkvarok', checkedLevel: 0.46, onCheckingLevel: 0.52, userCode: 12345},
+      {name: 'Petrivkyi', checkedLevel: 0.12, onCheckingLevel: 0.3}
+    ];
+  }
+
+  getIndividualEmployeesRank(): Employee[] {
+    return [
+      {name: 'Hot', checkedLevel: 0.46, onCheckingLevel: 1.05},
+      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.8},
+      {name: 'Shkvarok', checkedLevel: 0.56, onCheckingLevel: 0.7, userCode: 12345},
+      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.9}
+    ];
   }
 
 }

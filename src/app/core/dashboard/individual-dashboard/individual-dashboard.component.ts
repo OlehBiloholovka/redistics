@@ -15,12 +15,7 @@ export class IndividualDashboardComponent implements OnInit {
 
   constructor(private ris: RegistrationIndicatorService) {
     this.dashboardCardName = 'Індивідуальний план';
-    this.employees = [
-      {name: 'Hot', checkedLevel: 0.46, onCheckingLevel: 1.05},
-      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.8},
-      {name: 'Shkvarok', checkedLevel: 0.56, onCheckingLevel: 0.7, userCode: 12345},
-      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.9}
-    ];
+    this.employees = this.ris.getIndividualEmployeesRank();
     this.registrationIndicator = this.ris.getIndividualRegistrationIndicator();
   }
 
