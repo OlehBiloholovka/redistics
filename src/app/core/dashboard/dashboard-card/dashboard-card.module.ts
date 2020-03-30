@@ -17,6 +17,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {FormsModule} from '@angular/forms';
 import {MatSortModule} from '@angular/material/sort';
 import { DashboardSalaryRadialBarComponent } from './dashboard-salary-radial-bar/dashboard-salary-radial-bar.component';
+import { TeamIndividualDashboardComponent } from '../team-individual-dashboard/team-individual-dashboard.component';
+import { TeamPartnerDashboardComponent } from '../team-partner-dashboard/team-partner-dashboard.component';
+import { TeamPprDashboardComponent } from '../team-ppr-dashboard/team-ppr-dashboard.component';
 
 
 @NgModule({
@@ -25,10 +28,16 @@ import { DashboardSalaryRadialBarComponent } from './dashboard-salary-radial-bar
     DashboardCardCalculationComponent,
     DashboardRankComponent,
     DashboardProgressRadialBarComponent,
-    DashboardSalaryRadialBarComponent
+    DashboardSalaryRadialBarComponent,
+    TeamIndividualDashboardComponent,
+    TeamPartnerDashboardComponent,
+    TeamPprDashboardComponent
   ],
   exports: [
     DashboardCardComponent,
+    TeamPprDashboardComponent,
+    TeamIndividualDashboardComponent,
+    TeamPartnerDashboardComponent,
   ],
     imports: [
         CommonModule,
