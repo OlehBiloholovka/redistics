@@ -106,4 +106,19 @@ export class RegistrationIndicatorService {
     ];
   }
 
+  getUserCode(): number | string {
+    return 12345;
+  }
+
+  getTeamIndividualEmployeesRank(): Employee[] {
+    return this.getIndividualEmployeesRank();
+  }
+
+  getTeamPprEmployeesRank(): Employee[] {
+    return this.getPprEmployeesRank();
+  }
+
+  getTeamPartnerEmployeesRank(): Employee[] {
+    return this.getPartnerEmployeesRank();
+  }
 }

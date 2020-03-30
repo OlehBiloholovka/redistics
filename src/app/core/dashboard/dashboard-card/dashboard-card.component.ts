@@ -20,6 +20,7 @@ export class DashboardCardComponent implements OnInit {
   @Input() employees: Employee[];
   @Input() hasBakCard: boolean;
   @Input() salaryIndicators: SalaryIndicator[];
+  @Input() userCode: number | string;
   checkedData: boolean;
   radialBarSeries!: number[];
   footerLabel = 0;
@@ -31,9 +32,7 @@ export class DashboardCardComponent implements OnInit {
     if (this.registrationIndicator) {
       this.setRadialBarSeries();
     }
-    if (this.salaryIndicators) {
-      this.setDefaultFooterLabel();
-    }
+    this.setDefaultFooterLabel();
   }
 
   private setRadialBarSeries() {
@@ -48,9 +47,11 @@ export class DashboardCardComponent implements OnInit {
   }
 
   setDefaultFooterLabel() {
-    this.footerLabel = this.salaryIndicators
-      .map(value => this.checkedData ? value.checkedValue : value.onCheckingValue)
-      .reduce((pV, cV) => pV + cV);
+    if (this.salaryIndicators) {
+      this.footerLabel = this.salaryIndicators
+        .map(value => this.checkedData ? value.checkedValue : value.onCheckingValue)
+        .reduce((pV, cV) => pV + cV);
+    }
   }
 
   setFooterLabel(footerLabel: number) {

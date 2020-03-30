@@ -5,22 +5,34 @@
       <app-salary-dashboard></app-salary-dashboard>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-ppr-dashboard></app-ppr-dashboard>
+      <app-ppr-dashboard
+        [userCode]="userCode"
+      ></app-ppr-dashboard>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-individual-dashboard></app-individual-dashboard>
+      <app-individual-dashboard
+        [userCode]="userCode"
+      ></app-individual-dashboard>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-partner-dashboard></app-partner-dashboard>
+      <app-partner-dashboard
+        [userCode]="userCode"
+      ></app-partner-dashboard>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-team-ppr-dashboard></app-team-ppr-dashboard>
+      <app-team-ppr-dashboard
+        [userCode]="userCode"
+      ></app-team-ppr-dashboard>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-team-individual-dashboard></app-team-individual-dashboard>
+      <app-team-individual-dashboard
+        [userCode]="userCode"
+      ></app-team-individual-dashboard>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-team-partner-dashboard></app-team-partner-dashboard>
+      <app-team-partner-dashboard
+        [userCode]="userCode"
+      ></app-team-partner-dashboard>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

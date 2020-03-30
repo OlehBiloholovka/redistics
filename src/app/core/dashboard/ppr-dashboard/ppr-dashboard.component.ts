@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Employee} from '../dashboard-card/dashboard-card.component';
 import {RegistrationIndicator} from '../../../share/models/registration-indicator.model';
 import {RegistrationIndicatorService} from '../../../share/services/registration-indicator.service';
@@ -12,6 +12,7 @@ export class PprDashboardComponent implements OnInit {
   dashboardCardName: string;
   employees: Employee[];
   registrationIndicator: RegistrationIndicator;
+  @Input() userCode: number | string;
 
   constructor(private ris: RegistrationIndicatorService) {
     this.dashboardCardName = 'ППР';
