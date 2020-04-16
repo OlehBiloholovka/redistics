@@ -81,11 +81,12 @@
   justify-content: flex-end;
 }
 
-.footer-label {
+.radialbar-label {
   color: #FF4560;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: Helvetica, Arial, sans-serifs, serif;
   font-weight: 600;
   width: 100%;
   justify-self: center;
+  margin: 1rem 0;
 }

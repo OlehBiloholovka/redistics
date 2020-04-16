@@ -32,7 +32,7 @@ export class DashboardCardComponent implements OnInit {
   @Input() totalLabel = 'Перевірено';
   @Input() rotate: boolean;
   checkedData: boolean;
-  footerLabel = 0;
+  radialbarLabel = 0;
 
   constructor() {
   }
@@ -58,13 +58,13 @@ export class DashboardCardComponent implements OnInit {
 
   setDefaultFooterLabel() {
     if (this.salaryIndicators) {
-      this.footerLabel = this.salaryIndicators
+      this.radialbarLabel = this.salaryIndicators
         .map(value => this.checkedData ? value.checkedValue : value.onCheckingValue)
         .reduce((pV, cV) => pV + cV);
     }
   }
 
   setFooterLabel(footerLabel: number) {
-    this.footerLabel = footerLabel;
+    this.radialbarLabel = footerLabel;
   }
 }

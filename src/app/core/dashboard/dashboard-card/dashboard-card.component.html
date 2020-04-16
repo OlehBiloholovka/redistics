@@ -32,6 +32,7 @@
           [seriesLabels]="seriesLabels"
           [totalLabel]="totalLabel"
         ></app-dashboard-progress-radial-bar>
+        <div *ngIf="salaryIndicators" class="radialbar-label">{{radialbarLabel | number}}</div>
         <app-dashboard-salary-radial-bar
           *ngIf="salaryIndicators"
           [isChecked]="checkedData"
@@ -41,7 +42,6 @@
         </app-dashboard-salary-radial-bar>
       </mat-card-content>
       <mat-card-footer>
-        <div *ngIf="salaryIndicators" class="footer-label">{{footerLabel | number}}</div>
         <button *ngIf="hasBackCard" (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
           <mat-icon>arrow_forward</mat-icon>
         </button>

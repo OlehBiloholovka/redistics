@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {SalaryIndicator} from '../models/salary-indicator.model';
+import {Employee} from '../../core/dashboard/dashboard-card/dashboard-card.component';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,20 @@ export class SalaryIndicatorService {
     i4.onCheckingValue = 900;
     indicators.push(i1, i2, i3, i4);
     return indicators;
+  }
+
+  getSalaryEmployeesRank(): Employee[] {
+    return [
+      {name: 'Hot', checkedLevel: 0.85, onCheckingLevel: 1.05},
+      {name: 'Shkvarok', checkedLevel: 0.56, onCheckingLevel: 1.25, userCode: 12345},
+      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.42},
+      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.89},
+      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.42},
+      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.89},
+      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.42},
+      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.89},
+      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.42},
+      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.89}
+    ];
   }
 }
