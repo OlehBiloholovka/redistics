@@ -26,14 +26,14 @@
 }
 
 .dashboard-progress-first {
-  background-color: #E60000;
+  background-color: #00E396;
   /*width: 60%;*/
   border-bottom-left-radius: 1.25em;
   border-top-left-radius: 1.25em;
 }
 
 .dashboard-progress-second {
-  background-color: #A300D6;
+  background-color: #FF4560;
   /*width: 100%;*/
 }
 
@@ -43,11 +43,16 @@
 }
 
 .dashboard-progress-first-value, .dashboard-progress-second-value {
-  color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.dashboard-progress-first-value {
+  color: #546E7A;
+}
+.dashboard-progress-second-value {
+  color: #FFFFFF;
 }
 
 .dashboard-progress-bar-prefix-container, .dashboard-progress-bar-suffix-container {

@@ -10,13 +10,15 @@ import {RegistrationIndicatorService} from '../../../share/services/registration
 })
 export class PartnerDashboardComponent implements OnInit {
 
-  dashboardCardName: string;
+  frontDashboardCardName: string;
+  backDashboardCardName: string;
   employees: Employee[];
   registrationIndicator: RegistrationIndicator;
   @Input() userCode: number | string;
 
   constructor(private ris: RegistrationIndicatorService) {
-    this.dashboardCardName = 'Партнер 3+';
+    this.frontDashboardCardName = 'Партнер 3+';
+    this.backDashboardCardName = 'Рейтинг ' + this.frontDashboardCardName;
     this.employees = this.ris.getPartnerEmployeesRank();
     this.registrationIndicator = this.ris.getPartnerRegistrationIndicator();
   }

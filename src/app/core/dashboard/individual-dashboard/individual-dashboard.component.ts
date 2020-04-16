@@ -9,13 +9,15 @@ import {RegistrationIndicatorService} from '../../../share/services/registration
   styleUrls: ['./individual-dashboard.component.css']
 })
 export class IndividualDashboardComponent implements OnInit {
-  dashboardCardName: string;
+  frontDashboardCardName: string;
+  backDashboardCardName: string;
   employees: Employee[];
   registrationIndicator: RegistrationIndicator;
   @Input() userCode: number | string;
 
   constructor(private ris: RegistrationIndicatorService) {
-    this.dashboardCardName = 'Індивідуальний план';
+    this.frontDashboardCardName = 'Індивідуальний план';
+    this.backDashboardCardName = 'Рейтинг ' + this.frontDashboardCardName;
     this.employees = this.ris.getIndividualEmployeesRank();
     this.registrationIndicator = this.ris.getIndividualRegistrationIndicator();
   }

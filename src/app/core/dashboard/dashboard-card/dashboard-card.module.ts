@@ -20,6 +20,7 @@ import { DashboardSalaryRadialBarComponent } from './dashboard-salary-radial-bar
 import { TeamIndividualDashboardComponent } from '../team-individual-dashboard/team-individual-dashboard.component';
 import { TeamPartnerDashboardComponent } from '../team-partner-dashboard/team-partner-dashboard.component';
 import { TeamPprDashboardComponent } from '../team-ppr-dashboard/team-ppr-dashboard.component';
+import { DashboardProgressChartComponent } from './dashboard-progress-chart/dashboard-progress-chart.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { TeamPprDashboardComponent } from '../team-ppr-dashboard/team-ppr-dashbo
     DashboardSalaryRadialBarComponent,
     TeamIndividualDashboardComponent,
     TeamPartnerDashboardComponent,
-    TeamPprDashboardComponent
+    TeamPprDashboardComponent,
+    DashboardProgressChartComponent
   ],
   exports: [
     DashboardCardComponent,

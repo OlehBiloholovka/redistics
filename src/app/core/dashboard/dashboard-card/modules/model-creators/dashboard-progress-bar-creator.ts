@@ -83,7 +83,7 @@ export class DashboardProgressBarCreator {
       pb.secondProgressValueLabel = pb.secondProgressValue;
     }
     pb.middleUnderProgressValue = Math.round(result * 100) + '%';
-    pb.middleUnderProgressBarFontSize = '1.5';
+    pb.middleUnderProgressBarFontSize = '1.25';
     return pb;
   }
 }

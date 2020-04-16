@@ -84,6 +84,12 @@ export class RegistrationIndicatorService {
       {name: 'Hot', checkedLevel: 0.85, onCheckingLevel: 1.05},
       {name: 'Shkvarok', checkedLevel: 0.56, onCheckingLevel: 1.25, userCode: 12345},
       {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.42},
+      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.89},
+      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.42},
+      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.89},
+      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.42},
+      {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.89},
+      {name: 'Petrivkyi', checkedLevel: 0.32, onCheckingLevel: 0.42},
       {name: 'Petriv', checkedLevel: 0.78, onCheckingLevel: 0.89}
     ];
   }

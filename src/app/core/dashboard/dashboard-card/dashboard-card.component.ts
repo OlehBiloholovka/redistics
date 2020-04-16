@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {RegistrationIndicator} from '../../../share/models/registration-indicator.model';
 import {SalaryIndicator} from '../../../share/models/salary-indicator.model';
+import {ApexAxisChartSeries} from 'ng-apexcharts';
+import {ProgressSeries} from './progress-series.model';
 
 export interface Employee {
   name: string;
@@ -16,13 +18,20 @@ export interface Employee {
 })
 export class DashboardCardComponent implements OnInit {
   @Input() registrationIndicator: RegistrationIndicator;
-  @Input() dashboardCardName!: string;
+  @Input() frontDashboardCardName!: string;
+  @Input() backDashboardCardName = 'Рейтинг';
   @Input() employees: Employee[];
-  @Input() hasBakCard: boolean;
+  @Input() hasBackCard: boolean;
   @Input() salaryIndicators: SalaryIndicator[];
   @Input() userCode: number | string;
+  @Input() chartSeries: ApexAxisChartSeries;
+  @Input() progressChartSeries: ProgressSeries[];
+  @Input() progressSeries: ProgressSeries;
+  @Input() toggleName = 'Перевірено';
+  @Input() seriesLabels = ['Перевірено', 'Без перевірки'];
+  @Input() totalLabel = 'Перевірено';
+  @Input() rotate: boolean;
   checkedData: boolean;
-  radialBarSeries!: number[];
   footerLabel = 0;
 
   constructor() {
@@ -36,10 +45,11 @@ export class DashboardCardComponent implements OnInit {
   }
 
   private setRadialBarSeries() {
-    this.radialBarSeries = [
+    const series = [
       Math.round(this.registrationIndicator.calculations.checkedIndicator() * 100),
       Math.round(this.registrationIndicator.calculations.onCheckingIndicator() * 100)
     ];
+    this.progressSeries = {data: series, forecastData: series};
   }
 
   rotateCard(dashboardCard: HTMLDivElement) {

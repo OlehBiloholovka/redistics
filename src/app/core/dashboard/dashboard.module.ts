@@ -19,11 +19,12 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {DashboardCardModule} from './dashboard-card/dashboard-card.module';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {FormsModule} from '@angular/forms';
+import { ActivationsDashboardComponent } from './activations-dashboard/activations-dashboard.component';
 
 
 @NgModule({
     declarations: [DashboardComponent, PprDashboardComponent, SalaryDashboardComponent,
-        IndividualDashboardComponent, PartnerDashboardComponent],
+        IndividualDashboardComponent, PartnerDashboardComponent, ActivationsDashboardComponent],
     exports: [
         SalaryDashboardComponent
     ],

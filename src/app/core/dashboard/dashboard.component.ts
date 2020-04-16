@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApexNonAxisChartSeries, ApexChart, ApexPlotOptions, ApexStroke} from 'ng-apexcharts';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map, shareReplay} from 'rxjs/operators';
-import {Observable, Subject} from 'rxjs';
+import {Observable} from 'rxjs';
 import {RegistrationIndicatorService} from '../../share/services/registration-indicator.service';
 
 export interface ChartOptions {
@@ -24,7 +24,6 @@ export class DashboardComponent implements OnInit {
       map(result => result.matches),
       shareReplay()
     );
-  cardName: Subject<string> = new Subject<string>();
   userCode: number | string;
 
   constructor(private breakpointObserver: BreakpointObserver, private ris: RegistrationIndicatorService) {
@@ -32,10 +31,5 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  setCardName(cardName: string) {
-    console.log('cardName - ' + cardName);
-    this.cardName.next(cardName);
   }
 }

@@ -1,28 +1,36 @@
 <div class="flip-dashboard-container">
-  <div #dashboardCard class="flip-dashboard-card">
+  <div #dashboardCard class="flip-dashboard-card" [class.rotate-card]="rotate">
     <mat-card class="front-dashboard-card">
       <mat-card-header>
         <mat-card-title>
-          {{dashboardCardName}}
+          {{frontDashboardCardName}}
         </mat-card-title>
         <mat-card-subtitle>
           <div>
             <mat-slide-toggle [(ngModel)]="checkedData"
-                              (ngModelChange)="setDefaultFooterLabel()" color="primary">Перевірено</mat-slide-toggle>
+                              (ngModelChange)="setDefaultFooterLabel()" color="primary">{{toggleName}}</mat-slide-toggle>
           </div>
           {{registrationIndicator?.calculationDate | date:'dd/MM/yyyy'}}
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <app-dashboard-rank
-          *ngIf="employees"
+        <app-dashboard-card-calculation
+          *ngIf="registrationIndicator"
           [isChecked]="checkedData"
-          [employees]="employees"
-          [userCode]="userCode"
-        ></app-dashboard-rank>
+          [registrationIndicator]="registrationIndicator"
+        ></app-dashboard-card-calculation>
+        <app-dashboard-progress-chart
+          *ngIf="progressChartSeries"
+          [isChecked]="checkedData"
+          [height]="230"
+          [progressChartSeries]="progressChartSeries"
+        ></app-dashboard-progress-chart>
         <app-dashboard-progress-radial-bar
-          *ngIf="radialBarSeries"
-          [radialBarSeries]="radialBarSeries"
+          *ngIf="progressSeries"
+          [isChecked]="checkedData"
+          [progressSeries]="progressSeries"
+          [seriesLabels]="seriesLabels"
+          [totalLabel]="totalLabel"
         ></app-dashboard-progress-radial-bar>
         <app-dashboard-salary-radial-bar
           *ngIf="salaryIndicators"
@@ -34,29 +42,31 @@
       </mat-card-content>
       <mat-card-footer>
         <div *ngIf="salaryIndicators" class="footer-label">{{footerLabel | number}}</div>
-        <button *ngIf="hasBakCard" (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
+        <button *ngIf="hasBackCard" (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
           <mat-icon>arrow_forward</mat-icon>
         </button>
       </mat-card-footer>
     </mat-card>
-    <mat-card *ngIf="hasBakCard" class="back-dashboard-card">
+    <mat-card class="back-dashboard-card">
       <mat-card-header>
         <mat-card-title>
-          Розрахунок
+          {{backDashboardCardName}}
         </mat-card-title>
         <mat-card-subtitle>
-          <mat-slide-toggle [(ngModel)]="checkedData" color="primary">Перевірено</mat-slide-toggle>
-          {{registrationIndicator.calculationDate | date:'dd/MM/yyyy'}}
+          <mat-slide-toggle [(ngModel)]="checkedData" color="primary">{{toggleName}}</mat-slide-toggle>
+          {{registrationIndicator?.calculationDate | date:'dd/MM/yyyy'}}
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
-        <app-dashboard-card-calculation
+        <app-dashboard-rank
+          *ngIf="employees"
           [isChecked]="checkedData"
-          [registrationIndicator]="registrationIndicator"
-        ></app-dashboard-card-calculation>
+          [employees]="employees"
+          [userCode]="userCode"
+        ></app-dashboard-rank>
       </mat-card-content>
       <mat-card-footer>
-        <button (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
+        <button *ngIf="hasBackCard" (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
           <mat-icon>arrow_back</mat-icon>
         </button>
       </mat-card-footer>
