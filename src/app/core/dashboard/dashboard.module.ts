@@ -20,11 +20,12 @@ import {DashboardCardModule} from './dashboard-card/dashboard-card.module';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {FormsModule} from '@angular/forms';
 import { ActivationsDashboardComponent } from './activations-dashboard/activations-dashboard.component';
+import { SalesDashboardComponent } from './sales-dashboard/sales-dashboard.component';
 
 
 @NgModule({
     declarations: [DashboardComponent, PprDashboardComponent, SalaryDashboardComponent,
-        IndividualDashboardComponent, PartnerDashboardComponent, ActivationsDashboardComponent],
+        IndividualDashboardComponent, PartnerDashboardComponent, ActivationsDashboardComponent, SalesDashboardComponent],
     exports: [
         SalaryDashboardComponent
     ],

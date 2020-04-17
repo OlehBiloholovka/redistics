@@ -67,19 +67,19 @@ export class DashboardProgressRadialBarComponent implements OnInit, OnChanges {
               fontSize: '20px',
               show: true,
               color: '#FF4560',
-              label: this.totalLabel,
+              label: !!this.progressSeries.name ? this.progressSeries.name[0] : this.totalLabel,
               formatter: () => this.radialBarSeries[0] + '%'
             }
           }
         }
       },
       fill: {
-        colors: ['#00E396', '#e7f436'],
+        colors: ['#00E396', '#e7f436', '#FEB019'],
         type: 'gradient',
         gradient: {
           shade: 'light',
           shadeIntensity: 0.5,
-          gradientToColors: ['#e7f436', '#FEB019'],
+          gradientToColors: ['#e7f436', '#FEB019', '#FF4560'],
           inverseColors: true,
           type: 'horizontal',
           opacityFrom: 1,
@@ -92,7 +92,7 @@ export class DashboardProgressRadialBarComponent implements OnInit, OnChanges {
       stroke: {
         lineCap: 'round',
       },
-      labels: this.seriesLabels
+      labels: !!this.progressSeries.name ? this.progressSeries.name : this.seriesLabels
     };
   }
 

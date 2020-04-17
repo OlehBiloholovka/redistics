@@ -1,5 +1,5 @@
 export class ProgressSeries {
-  name?: string;
+  name?: string[];
   data: number[];
   forecastData: number[];
 }

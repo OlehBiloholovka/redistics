@@ -31,7 +31,7 @@ export class DashboardCardComponent implements OnInit {
   @Input() seriesLabels = ['Перевірено', 'Без перевірки'];
   @Input() totalLabel = 'Перевірено';
   @Input() rotate: boolean;
-  checkedData: boolean;
+  @Input() checkedData: boolean;
   radialbarLabel = 0;
 
   constructor() {

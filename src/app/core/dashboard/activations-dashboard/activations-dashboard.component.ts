@@ -29,7 +29,7 @@ export class ActivationsDashboardComponent implements OnInit {
     this.chartSeries = this.as.getActivationData();
     this.activationSeries = this.as.getActivationIndicators().map(value => {
       return {
-        name: value.nameIndicator,
+        name: [value.nameIndicator],
         data: value.series,
         forecastData: value.forecastSeries
       };

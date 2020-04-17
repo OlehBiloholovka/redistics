@@ -47,7 +47,7 @@ export class DashboardProgressChartComponent implements OnInit, OnChanges {
   private setSeries(): void {
     this.chartSeries = this.progressChartSeries.map(value => {
       return {
-        name: value.name,
+        name: value.name[0],
         data: this.isChecked ? value.forecastData : value.data
       };
     });
