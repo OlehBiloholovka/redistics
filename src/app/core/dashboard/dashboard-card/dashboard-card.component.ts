@@ -9,6 +9,8 @@ export interface Employee {
   userCode?: number;
   checkedLevel: number;
   onCheckingLevel: number;
+  checkedAbsoluteLevel?: number;
+  onCheckingAbsoluteLevel?: number;
 }
 
 @Component({
@@ -32,6 +34,7 @@ export class DashboardCardComponent implements OnInit {
   @Input() totalLabel = 'Перевірено';
   @Input() rotate: boolean;
   @Input() checkedData: boolean;
+  @Input() showAbsoluteLevel: boolean;
   radialbarLabel = 0;
 
   constructor() {

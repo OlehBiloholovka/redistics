@@ -1,4 +1,4 @@
-<table [dataSource]="dataSource" matSort mat-table>
+<table [dataSource]="dataSource" mat-table matSort>
   <ng-container matColumnDef="index">
     <td *matCellDef="let el; let i = index;" mat-cell>
       {{i + 1}}
@@ -7,6 +7,11 @@
   <ng-container matColumnDef="name">
     <td *matCellDef="let el" mat-cell>
       {{el['name']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="absoluteLevel">
+    <td *matCellDef="let el" class="absolute-level" mat-cell>
+      {{el['absoluteLevel']}}
     </td>
   </ng-container>
   <ng-container matColumnDef="progressBar">
@@ -23,5 +28,7 @@
       {{el['level'] | percent}}
     </td>
   </ng-container>
-  <tr *matRowDef="let row; columns: columns" [ngClass]="updateRankTableRowColor(row)" mat-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;"
+      [ngClass]="updateRankTableRowColor(row)"
+      mat-row></tr>
 </table>

@@ -22,6 +22,10 @@ mat-progress-bar {
   text-align: left;
 }
 
+td.absolute-level {
+  width: 1rem;
+}
+
 .mat-cell:first-child {
   width: 0.5rem;
   max-width: 3rem;

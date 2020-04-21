@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardRankComponent } from './dashboard-rank.component';
+import {MatTableModule} from '@angular/material/table';
 
 describe('DashboardRankComponent', () => {
   let component: DashboardRankComponent;
@@ -8,7 +9,8 @@ describe('DashboardRankComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardRankComponent ]
+      declarations: [ DashboardRankComponent ],
+      imports: [ MatTableModule ]
     })
     .compileComponents();
   }));
