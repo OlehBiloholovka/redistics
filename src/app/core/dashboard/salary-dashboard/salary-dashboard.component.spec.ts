@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SalaryDashboardComponent } from './salary-dashboard.component';
+import {SalaryDashboardComponent} from './salary-dashboard.component';
 
 describe('SalaryDashboardComponent', () => {
   let component: SalaryDashboardComponent;

@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {MatSort, MatSortable} from '@angular/material/sort';
-import {Employee} from '../dashboard-card.component';
+import {Employee} from '../../dashboard-card.component';
 import {MatTableDataSource} from '@angular/material/table';
 
 export interface RankData {

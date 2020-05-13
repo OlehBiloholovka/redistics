@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DashboardRankComponent } from './dashboard-rank.component';
+import {DashboardRankComponent} from './dashboard-rank.component';
 import {MatTableModule} from '@angular/material/table';
 
 describe('DashboardRankComponent', () => {

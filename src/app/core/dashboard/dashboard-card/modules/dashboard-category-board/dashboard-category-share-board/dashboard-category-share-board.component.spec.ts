@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DashboardCategoryShareBoardComponent } from './dashboard-category-share-board.component';
+import {DashboardCategoryShareBoardComponent} from './dashboard-category-share-board.component';
 
 describe('DasboardCategoryShareBoardComponent', () => {
   let component: DashboardCategoryShareBoardComponent;

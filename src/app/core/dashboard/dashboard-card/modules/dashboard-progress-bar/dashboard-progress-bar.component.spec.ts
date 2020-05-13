@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DashboardProgressBarComponent } from './dashboard-progress-bar.component';
+import {DashboardProgressBarComponent} from './dashboard-progress-bar.component';
 
 describe('DashboardProgressBarComponent', () => {
   let component: DashboardProgressBarComponent;

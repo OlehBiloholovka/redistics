@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SalesIndicatorService} from '../../../share/services/sales-indicator.service';
-import {Employee} from '../dashboard-card/dashboard-card.component';
-import {ProgressSeries} from '../dashboard-card/progress-series.model';
+import {CardData} from '../dashboard-card/card-data.model';
 
 @Component({
   selector: 'app-sales-dashboard',
@@ -13,17 +12,21 @@ export class SalesDashboardComponent implements OnInit {
   frontDashboardCardName: string;
   backDashboardCardName: string;
   toggleName: string;
-  employees: Employee[];
-  progressSeries: ProgressSeries;
-  salesChartSeries: ProgressSeries[];
+  // employees: Employee[];
+  // salesIndicators: ProgressData;
+  // salesChartIndicators: ProgressData;
+  cardData: CardData;
+  // salesChartSeries: ProgressData[];
 
   constructor(private salesIS: SalesIndicatorService) {
     this.frontDashboardCardName = 'Продажі';
     this.backDashboardCardName = 'Рейтинг ' + this.frontDashboardCardName;
     this.toggleName = 'Прогноз';
-    this.employees = salesIS.getSalesEmployeesRank();
-    this.progressSeries = this.salesIS.getSalesProgressSeries();
-    this.salesChartSeries = salesIS.getSalesChartSeries();
+    // this.employees = salesIS.getSalesEmployeesRank();
+    // this.salesIndicators = this.salesIS.getSalesIndicators();
+    // this.salesChartIndicators = this.salesIS.getSalesChartIndicators();
+    this.cardData = salesIS.getSalesData();
+    // this.salesChartSeries = salesIS.getSalesChartSeries();
   }
 
   ngOnInit(): void {

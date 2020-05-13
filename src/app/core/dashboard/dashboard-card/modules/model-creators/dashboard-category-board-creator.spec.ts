@@ -1,4 +1,4 @@
-import { DashboardCategoryBoardCreator } from './dashboard-category-board-creator';
+import {DashboardCategoryBoardCreator} from './dashboard-category-board-creator';
 
 describe('DashboardCategoryBoardCreator', () => {
   it('should create an instance', () => {

@@ -19,8 +19,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {DashboardCardModule} from './dashboard-card/dashboard-card.module';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {FormsModule} from '@angular/forms';
-import { ActivationsDashboardComponent } from './activations-dashboard/activations-dashboard.component';
-import { SalesDashboardComponent } from './sales-dashboard/sales-dashboard.component';
+import {ActivationsDashboardComponent} from './activations-dashboard/activations-dashboard.component';
+import {SalesDashboardComponent} from './sales-dashboard/sales-dashboard.component';
 
 
 @NgModule({

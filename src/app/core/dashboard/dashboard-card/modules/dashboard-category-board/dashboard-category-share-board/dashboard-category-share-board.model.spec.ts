@@ -1,4 +1,4 @@
-import { DashboardCategoryShareBoard } from './dashboard-category-share-board.model';
+import {DashboardCategoryShareBoard} from './dashboard-category-share-board.model';
 
 describe('DashboardCategoryShareBoard', () => {
   it('should create an instance', () => {

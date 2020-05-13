@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {RegistrationIndicator} from '../../../../share/models/registration-indicator.model';
-import {DashboardCategoryBoard} from '../modules/dashboard-category-board/dashboard-category-board.model';
-import {DashboardCategoryBoardCreator} from '../modules/model-creators/dashboard-category-board-creator';
+import {RegistrationIndicator} from '../../../../../share/models/registration-indicator.model';
+import {DashboardCategoryBoard} from '../../modules/dashboard-category-board/dashboard-category-board.model';
+import {DashboardCategoryBoardCreator} from '../../modules/model-creators/dashboard-category-board-creator';
 
 @Component({
   selector: 'app-dashboard-card-calculation',

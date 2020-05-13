@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {RegistrationIndicator} from '../models/registration-indicator.model';
 import {RegistrationIndicatorCalculation} from '../models/registration-indicator-calculation.model';
 import {Employee} from '../../core/dashboard/dashboard-card/dashboard-card.component';
+import {ProgressData} from '../../core/dashboard/dashboard-card/progress-data.model';
+import {CardData} from '../../core/dashboard/dashboard-card/card-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +33,40 @@ export class RegistrationIndicatorService {
     registrationIndicator.nameExpert = 'Oleh';
     registrationIndicator.calculationDate = Date.now();
     return registrationIndicator;
+  }
+
+  getPprIndicators(): ProgressData {
+    const data = new ProgressData();
+    data.dataLabels = ['Перевірено', 'На перевірці'];
+    data.data = [
+      Math.round(this.getPprRegistrationIndicator().calculations.checkedIndicator() * 100),
+      Math.round(this.getPprRegistrationIndicator().calculations.onCheckingIndicator() * 100)
+    ];
+    data.switchedData = data.data;
+    return data;
+  }
+
+  getPartnerIndicators(): ProgressData {
+    const data = new ProgressData();
+    data.dataLabels = ['Перевірено', 'На перевірці'];
+    data.data = [
+      Math.round(this.getPartnerRegistrationIndicator().calculations.checkedIndicator() * 100),
+      Math.round(this.getPartnerRegistrationIndicator().calculations.onCheckingIndicator() * 100)
+    ];
+    data.switchedData = data.data;
+    return data;
+  }
+
+
+  getIndividualIndicators(): ProgressData {
+    const data = new ProgressData();
+    data.dataLabels = ['Перевірено', 'На перевірці'];
+    data.data = [
+      Math.round(this.getIndividualRegistrationIndicator().calculations.checkedIndicator() * 100),
+      Math.round(this.getIndividualRegistrationIndicator().calculations.onCheckingIndicator() * 100)
+    ];
+    data.switchedData = data.data;
+    return data;
   }
 
   getPartnerRegistrationIndicator(): RegistrationIndicator {
@@ -126,5 +162,53 @@ export class RegistrationIndicatorService {
 
   getTeamPartnerEmployeesRank(): Employee[] {
     return this.getPartnerEmployeesRank();
+  }
+
+  getTeamIndividualData(): CardData {
+    const cardData = new CardData();
+    cardData.cardDate = Date.now();
+    cardData.rankData = this.getTeamIndividualEmployeesRank();
+    return cardData;
+  }
+
+  getTeamPprData(): CardData {
+    const cardData = new CardData();
+    cardData.cardDate = Date.now();
+    cardData.rankData = this.getTeamPprEmployeesRank();
+    return cardData;
+  }
+
+  getTeamPartnerData(): CardData {
+    const cardData = new CardData();
+    cardData.cardDate = Date.now();
+    cardData.rankData = this.getTeamPartnerEmployeesRank();
+    return cardData;
+  }
+
+  getIndividualData(): CardData {
+    const cardData = new CardData();
+    cardData.calculationData = this.getIndividualRegistrationIndicator();
+    cardData.cardDate = cardData.calculationData.calculationDate;
+    cardData.radialBarData = this.getIndividualIndicators();
+    cardData.rankData = this.getIndividualEmployeesRank();
+    return cardData;
+  }
+
+  getPprData(): CardData {
+    const cardData = new CardData();
+    cardData.calculationData = this.getPprRegistrationIndicator();
+    cardData.cardDate = cardData.calculationData.calculationDate;
+    cardData.radialBarData = this.getPprIndicators();
+    cardData.rankData = this.getPprEmployeesRank();
+    return cardData;
+  }
+
+  getPartnerData(): CardData {
+    const cardData = new CardData();
+    cardData.calculationData = this.getPartnerRegistrationIndicator();
+    cardData.cardDate = cardData.calculationData.calculationDate;
+    cardData.radialBarData = this.getPartnerIndicators();
+    cardData.rankData = this.getPartnerEmployeesRank();
+    return cardData;
   }
 }

@@ -1,10 +1,6 @@
-import {
-  Component, Input,
-  OnInit
-} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {SalaryIndicatorService} from '../../../share/services/salary-indicator.service';
-import {SalaryIndicator} from '../../../share/models/salary-indicator.model';
-import {Employee} from '../dashboard-card/dashboard-card.component';
+import {CardData} from '../dashboard-card/card-data.model';
 
 @Component({
   selector: 'app-salary-dashboard',
@@ -13,14 +9,18 @@ import {Employee} from '../dashboard-card/dashboard-card.component';
 })
 export class SalaryDashboardComponent implements OnInit {
   dashboardCardName: string;
-  salaryIndicators: SalaryIndicator[];
-  employees: Employee[];
+  // salaryIndicators: SalaryIndicator[];
+  // salaryIndicators: ProgressData;
+  // employees: Employee[];
   @Input() userCode: number | string;
+  cardData: CardData;
 
   constructor(private sis: SalaryIndicatorService) {
     this.dashboardCardName = 'Винагорода';
-    this.salaryIndicators = sis.getSalaryIndicators();
-    this.employees = sis.getSalaryEmployeesRank();
+    // this.salaryIndicators = sis.getSalaryIndicatorsOLD();
+    // this.salaryIndicators = this.sis.getSalaryIndicators();
+    // this.employees = sis.getSalaryEmployeesRank();
+    this.cardData = sis.getSalaryEmployeesData();
   }
 
   ngOnInit(): void {

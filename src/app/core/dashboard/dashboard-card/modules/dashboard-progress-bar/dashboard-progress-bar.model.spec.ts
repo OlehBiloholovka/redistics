@@ -1,4 +1,4 @@
-import { DashboardProgressBar } from './dashboard-progress-bar.model';
+import {DashboardProgressBar} from './dashboard-progress-bar.model';
 
 describe('DashboardProgressBar', () => {
   it('should create an instance', () => {

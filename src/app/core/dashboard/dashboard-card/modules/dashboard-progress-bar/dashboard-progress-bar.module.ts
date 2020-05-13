@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { DashboardProgressBarComponent } from './dashboard-progress-bar.component';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {DashboardProgressBarComponent} from './dashboard-progress-bar.component';
 
 
 @NgModule({

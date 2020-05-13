@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ApexNonAxisChartSeries, ApexChart, ApexPlotOptions, ApexStroke} from 'ng-apexcharts';
+import {ApexChart, ApexNonAxisChartSeries, ApexPlotOptions, ApexStroke} from 'ng-apexcharts';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map, shareReplay} from 'rxjs/operators';
 import {Observable} from 'rxjs';

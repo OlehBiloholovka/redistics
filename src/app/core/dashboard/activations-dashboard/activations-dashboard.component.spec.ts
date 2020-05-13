@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ActivationsDashboardComponent } from './activations-dashboard.component';
+import {ActivationsDashboardComponent} from './activations-dashboard.component';
 
 describe('ActivationsDashboardComponent', () => {
   let component: ActivationsDashboardComponent;

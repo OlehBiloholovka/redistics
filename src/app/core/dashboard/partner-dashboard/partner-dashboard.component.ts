@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Employee} from '../dashboard-card/dashboard-card.component';
-import {RegistrationIndicator} from '../../../share/models/registration-indicator.model';
 import {RegistrationIndicatorService} from '../../../share/services/registration-indicator.service';
+import {CardData} from '../dashboard-card/card-data.model';
 
 @Component({
   selector: 'app-partner-dashboard',
@@ -12,15 +11,19 @@ export class PartnerDashboardComponent implements OnInit {
 
   frontDashboardCardName: string;
   backDashboardCardName: string;
-  employees: Employee[];
-  registrationIndicator: RegistrationIndicator;
+  // employees: Employee[];
+  // registrationIndicator: RegistrationIndicator;
+  // partnerIndicators: ProgressData;
   @Input() userCode: number | string;
+  cardData: CardData;
 
   constructor(private ris: RegistrationIndicatorService) {
     this.frontDashboardCardName = 'Партнер 3+';
     this.backDashboardCardName = 'Рейтинг ' + this.frontDashboardCardName;
-    this.employees = this.ris.getPartnerEmployeesRank();
-    this.registrationIndicator = this.ris.getPartnerRegistrationIndicator();
+    // this.employees = this.ris.getPartnerEmployeesRank();
+    // this.registrationIndicator = this.ris.getPartnerRegistrationIndicator();
+    // this.partnerIndicators = this.ris.getPartnerIndicators();
+    this.cardData = this.ris.getPartnerData();
   }
 
   ngOnInit(): void {

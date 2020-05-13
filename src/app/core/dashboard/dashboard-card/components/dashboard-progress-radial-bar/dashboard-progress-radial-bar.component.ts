@@ -1,14 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
-import {
-  ApexChart,
-  ApexFill,
-  ApexNonAxisChartSeries,
-  ApexPlotOptions,
-  ApexStroke,
-  ApexTheme,
-  ChartComponent
-} from 'ng-apexcharts';
-import {ProgressSeries} from '../progress-series.model';
+import {ApexChart, ApexFill, ApexNonAxisChartSeries, ApexPlotOptions, ApexStroke, ApexTheme, ChartComponent} from 'ng-apexcharts';
+import {ProgressData} from '../../progress-data.model';
 
 export interface ChartOptions {
   series: ApexNonAxisChartSeries;
@@ -28,22 +20,25 @@ export interface ChartOptions {
 export class DashboardProgressRadialBarComponent implements OnInit, OnChanges {
   @ViewChild('chart') chart: ChartComponent;
   @Input() isChecked: boolean;
-  @Input() progressSeries: ProgressSeries;
-  @Input() seriesLabels: string[];
-  @Input() totalLabel: string;
-  radialBarSeries!: number[];
+  @Input() progressData: ProgressData;
+  // @Input() seriesLabels: string[];
+  // @Input() totalLabel: string;
+  // radialBarSeries!: number[];
+  // radialBarTotalValue: number;
   indicatorChartOptions: Partial<ChartOptions>;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.setData();
+    // this.setData();
+    this.setChartOptions();
   }
 
   private setChartOptions() {
     this.indicatorChartOptions = {
-      series: this.radialBarSeries,
+      // series: this.radialBarSeries,
+      series: this.progressData.getData(this.isChecked) as number[],
       chart: {
         height: 300,
         type: 'radialBar',
@@ -67,8 +62,13 @@ export class DashboardProgressRadialBarComponent implements OnInit, OnChanges {
               fontSize: '20px',
               show: true,
               color: '#FF4560',
-              label: !!this.progressSeries.name ? this.progressSeries.name[0] : this.totalLabel,
-              formatter: () => this.radialBarSeries[0] + '%'
+              // label: !!this.progressData.name ? this.progressData.name[0] : this.totalLabel,
+              // label: this.progressData.totalLabel || this.progressData.dataLabels[0],
+              // formatter: () => this.radialBarTotalValue + '%'
+              label: this.progressData.totalLabel || this.progressData.dataLabels[0],
+              formatter: () => (this.progressData.totalLabel ?
+                this.progressData.getAverageData(this.isChecked) :
+                this.progressData.getData(this.isChecked)[0] as number) + '%'
             }
           }
         }
@@ -92,20 +92,32 @@ export class DashboardProgressRadialBarComponent implements OnInit, OnChanges {
       stroke: {
         lineCap: 'round',
       },
-      labels: !!this.progressSeries.name ? this.progressSeries.name : this.seriesLabels
+      // labels: !!this.progressData.name ? this.progressData.name : this.seriesLabels
+      labels: this.progressData.dataLabels
     };
   }
 
-  private setData() {
-    this.setSeries();
-    this.setChartOptions();
-  }
-
-  private setSeries() {
-    this.radialBarSeries = this.isChecked ? this.progressSeries.forecastData : this.progressSeries.data;
-  }
+  // private setData() {
+  //   this.setSeries();
+  //   this.setTotal();
+  //   this.setChartOptions();
+  // }
+  //
+  // private setSeries() {
+  //   // this.radialBarSeries = this.isChecked ?
+  //   //   (this.progressData.switchedData as number[]) :
+  //   //   (this.progressData.data as number[]);
+  //   this.radialBarSeries = this.progressData.getData(this.isChecked) as number[];
+  // }
+  //
+  // private setTotal() {
+  //   this.radialBarTotalValue = this.progressData.totalLabel ?
+  //     this.progressData.getAverageData(this.isChecked) :
+  //     this.progressData.getData(this.isChecked)[0] as number;
+  // }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.setData();
+    // this.setData();
+    this.setChartOptions();
   }
 }

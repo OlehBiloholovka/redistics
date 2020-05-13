@@ -80,13 +80,3 @@
   justify-self: end;
   justify-content: flex-end;
 }
-
-.radialbar-label {
-  color: #FF4560;
-  font-size: 2rem;
-  font-family: Helvetica, Arial, sans-serifs, serif;
-  font-weight: 600;
-  width: 100%;
-  justify-self: center;
-  margin: 1rem 0;
-}
