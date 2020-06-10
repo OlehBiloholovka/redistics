@@ -11,7 +11,7 @@ export class SalesIndicatorService {
   constructor() {
   }
 
-  getSalesEmployeesRank(): Employee[] {
+  getSPSalesEmployeesRank(): Employee[] {
     return [
       {name: 'Hot', onCheckingLevel: 0.85, checkedLevel: 1.05},
       {name: 'Shkvarok', onCheckingLevel: 0.56, checkedLevel: 1.25, userCode: 12345},
@@ -26,8 +26,30 @@ export class SalesIndicatorService {
     ];
   }
 
+  getSKSalesEmployeesRank(): Employee[] {
+    return [
+      {name: 'Hot', onCheckingLevel: 0.85, checkedLevel: 1.05},
+      {name: 'Shkvarok', onCheckingLevel: 0.56, checkedLevel: 1.25, userCode: 12345},
+      {name: 'Petrivkyi', onCheckingLevel: 0.32, checkedLevel: 0.42},
+      {name: 'Petriv', onCheckingLevel: 0.78, checkedLevel: 0.89},
+      {name: 'Petrivkyi', onCheckingLevel: 0.32, checkedLevel: 0.42},
+      {name: 'Petriv', onCheckingLevel: 0.78, checkedLevel: 0.89},
+      {name: 'Petrivkyi', onCheckingLevel: 0.32, checkedLevel: 0.42},
+    ];
+  }
+
+  getEPSalesEmployeesRank(): Employee[] {
+    return [
+      {name: 'Hot', onCheckingLevel: 0.85, checkedLevel: 1.05},
+      {name: 'Shkvarok', onCheckingLevel: 0.56, checkedLevel: 1.25, userCode: 12345},
+      {name: 'Petrivkyi', onCheckingLevel: 0.32, checkedLevel: 0.42},
+      {name: 'Petrivkyi', onCheckingLevel: 0.32, checkedLevel: 0.42},
+      {name: 'Petriv', onCheckingLevel: 0.78, checkedLevel: 0.89}
+    ];
+  }
+
   getTeamSalesEmployeesRank(): Employee[] {
-    return this.getSalesEmployeesRank();
+    return this.getSPSalesEmployeesRank();
   }
 
   getSalesIndicators(): ProgressData {
@@ -76,10 +98,17 @@ export class SalesIndicatorService {
   // }
   getSalesData(): CardData {
     const cardData = new CardData();
-    cardData.cardDate = Date.now();
+    // cardData.cardDate = Date.now();
+    cardData.multipleCardDate = [Date.now(), Date.now(), Date.now()];
     cardData.radialBarData = this.getSalesIndicators();
     cardData.chartData = this.getSalesChartIndicators();
-    cardData.rankData = this.getSalesEmployeesRank();
+    // cardData.rankData = this.getSPSalesEmployeesRank();
+    cardData.rankButtons = ['Продажі СП', 'Продажі СК', 'Продажі ЕП'];
+    cardData.multipleRankData = [
+      this.getSPSalesEmployeesRank(),
+      this.getSKSalesEmployeesRank(),
+      this.getEPSalesEmployeesRank()
+    ];
     return cardData;
   }
 }

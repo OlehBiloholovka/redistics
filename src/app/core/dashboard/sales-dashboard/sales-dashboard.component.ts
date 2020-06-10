@@ -22,7 +22,7 @@ export class SalesDashboardComponent implements OnInit {
     this.frontDashboardCardName = 'Продажі';
     this.backDashboardCardName = 'Рейтинг ' + this.frontDashboardCardName;
     this.toggleName = 'Прогноз';
-    // this.employees = salesIS.getSalesEmployeesRank();
+    // this.employees = salesIS.getSPSalesEmployeesRank();
     // this.salesIndicators = this.salesIS.getSalesIndicators();
     // this.salesChartIndicators = this.salesIS.getSalesChartIndicators();
     this.cardData = salesIS.getSalesData();
