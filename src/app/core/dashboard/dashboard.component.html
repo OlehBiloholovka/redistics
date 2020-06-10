@@ -22,21 +22,6 @@
       ></app-partner-dashboard>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-team-ppr-dashboard
-        [userCode]="userCode"
-      ></app-team-ppr-dashboard>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-team-individual-dashboard
-        [userCode]="userCode"
-      ></app-team-individual-dashboard>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <app-team-partner-dashboard
-        [userCode]="userCode"
-      ></app-team-partner-dashboard>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
       <app-activations-dashboard
         [userCode]="userCode"
       ></app-activations-dashboard>
@@ -45,6 +30,11 @@
       <app-sales-dashboard
         [userCode]="userCode"
       ></app-sales-dashboard>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <app-team-rank-dashboard
+        [userCode]="userCode"
+      ></app-team-rank-dashboard>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

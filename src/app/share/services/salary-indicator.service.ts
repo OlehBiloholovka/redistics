@@ -70,6 +70,10 @@ export class SalaryIndicatorService {
     ];
   }
 
+  getTeamSalaryEmployeesRank(): Employee[] {
+    return this.getSalaryEmployeesRank();
+  }
+
   getSalaryEmployeesData(): CardData {
     const cardData = new CardData();
     cardData.circleBarData = this.getSalaryIndicators();

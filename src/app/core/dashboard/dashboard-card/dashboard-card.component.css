@@ -80,3 +80,9 @@
   justify-self: end;
   justify-content: flex-end;
 }
+
+.card-button {
+  line-height: 1.75rem;
+  padding: 0 8px;
+  min-width: 3rem;
+}

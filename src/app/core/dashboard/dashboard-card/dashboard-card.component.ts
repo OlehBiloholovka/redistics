@@ -49,7 +49,9 @@ export class DashboardCardComponent implements OnInit {
   // Rank variables
   @Input() showAbsoluteLevelRank: boolean;
   @Input() userCode: number | string;
-  @Input() rankData: Employee[];
+  // @Input() rankData: Employee[];
+  // @Input() rankButtons: string[];
+  rButtonIndex = 0;
 
   constructor() {
   }
@@ -87,4 +89,9 @@ export class DashboardCardComponent implements OnInit {
   // setCircleBarLabel(circleBarLabel: number) {
   //   this.circleBarLabel = circleBarLabel;
   // }
+  onRankButtonClick(i: number) {
+    this.rButtonIndex = i;
+    this.cardData.rankData = this.cardData.multipleRankData[i];
+    this.cardData.cardDate = this.cardData.multipleCardDate[i];
+  }
 }

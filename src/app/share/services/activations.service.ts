@@ -90,6 +90,10 @@ export class ActivationsService {
     ];
   }
 
+  getTeamActivationsEmployeesRank(): Employee[] {
+    return this.getActivationsEmployeesRank();
+  }
+
   getActivationsIndicators(): ProgressData {
     const data = new ProgressData();
     data.dataLabels = ['Активації', '% СП з АП'];

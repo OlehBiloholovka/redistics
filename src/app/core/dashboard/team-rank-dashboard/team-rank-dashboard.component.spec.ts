@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {TeamPprDashboardComponent} from './team-ppr-dashboard.component';
+import {TeamRankDashboardComponent} from './team-rank-dashboard.component';
 
 describe('TeamPprDashboardComponent', () => {
-  let component: TeamPprDashboardComponent;
-  let fixture: ComponentFixture<TeamPprDashboardComponent>;
+  let component: TeamRankDashboardComponent;
+  let fixture: ComponentFixture<TeamRankDashboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamPprDashboardComponent ]
+      declarations: [ TeamRankDashboardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TeamPprDashboardComponent);
+    fixture = TestBed.createComponent(TeamRankDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

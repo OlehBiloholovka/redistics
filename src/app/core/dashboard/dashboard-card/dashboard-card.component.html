@@ -50,14 +50,22 @@
         </mat-card-title>
         <mat-card-subtitle>
           <mat-slide-toggle [(ngModel)]="checkedData" color="primary">{{toggleName}}</mat-slide-toggle>
-          {{registrationIndicator?.calculationDate || cardData?.cardDate | date:'dd/MM/yyyy'}}
+          {{registrationIndicator?.calculationDate || cardData?.cardDate || cardData?.multipleCardDate[0] | date:'dd/MM/yyyy'}}
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
+        <div *ngIf="cardData.multipleRankData" class="menu-button-row">
+          <a *ngFor="let rButton of cardData.rankButtons; index as i"
+             mat-raised-button
+             class="card-button"
+             [class.mat-accent]="i === rButtonIndex"
+             (click)="onRankButtonClick(i)"
+          >{{rButton}}</a>
+        </div>
         <app-dashboard-rank
-          *ngIf="rankData || cardData?.rankData"
+          *ngIf="cardData?.rankData || cardData?.multipleRankData"
           [isChecked]="checkedData"
-          [employees]="rankData || cardData?.rankData"
+          [employees]="cardData?.rankData || cardData.multipleRankData[0]"
           [userCode]="userCode"
           [showAbsoluteLevel]="showAbsoluteLevelRank"
         ></app-dashboard-rank>

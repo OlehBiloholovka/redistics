@@ -7,6 +7,9 @@ export class CardData {
   radialBarData?: ProgressData;
   chartData?: ProgressData;
   rankData?: Employee[];
+  rankButtons?: string[];
+  multipleCardDate: number[];
+  multipleRankData?: Employee[][];
   calculationData?: RegistrationIndicator;
   cardDate: number;
 }

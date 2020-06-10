@@ -26,6 +26,10 @@ export class SalesIndicatorService {
     ];
   }
 
+  getTeamSalesEmployeesRank(): Employee[] {
+    return this.getSalesEmployeesRank();
+  }
+
   getSalesIndicators(): ProgressData {
     const data = new ProgressData();
     data.dataLabels = ['СП', 'Скретч', 'ЕП'];

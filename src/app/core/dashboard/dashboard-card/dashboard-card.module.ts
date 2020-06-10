@@ -16,11 +16,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {FormsModule} from '@angular/forms';
 import {MatSortModule} from '@angular/material/sort';
 import {DashboardProgressCircleBarComponent} from './components/dashboard-progress-circle-bar/dashboard-progress-circle-bar.component';
-import {TeamIndividualDashboardComponent} from '../team-individual-dashboard/team-individual-dashboard.component';
-import {TeamPartnerDashboardComponent} from '../team-partner-dashboard/team-partner-dashboard.component';
-import {TeamPprDashboardComponent} from '../team-ppr-dashboard/team-ppr-dashboard.component';
+import {TeamRankDashboardComponent} from '../team-rank-dashboard/team-rank-dashboard.component';
 import {DashboardProgressChartComponent} from './components/dashboard-progress-chart/dashboard-progress-chart.component';
 import {MatTableModule} from '@angular/material/table';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -30,32 +29,29 @@ import {MatTableModule} from '@angular/material/table';
     DashboardRankComponent,
     DashboardProgressRadialBarComponent,
     DashboardProgressCircleBarComponent,
-    TeamIndividualDashboardComponent,
-    TeamPartnerDashboardComponent,
-    TeamPprDashboardComponent,
+    TeamRankDashboardComponent,
     DashboardProgressChartComponent,
   ],
   exports: [
     DashboardCardComponent,
-    TeamPprDashboardComponent,
-    TeamIndividualDashboardComponent,
-    TeamPartnerDashboardComponent,
+    TeamRankDashboardComponent,
   ],
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatProgressBarModule,
-    NgApexchartsModule,
-    MatChipsModule,
-    MatButtonModule,
-    MatIconModule,
-    DashboardProgressBarModule,
-    DashboardCategoryBoardModule,
-    MatSlideToggleModule,
-    FormsModule,
-    MatSortModule,
-    MatTableModule,
-  ]
+    imports: [
+        CommonModule,
+        MatCardModule,
+        MatProgressBarModule,
+        NgApexchartsModule,
+        MatChipsModule,
+        MatButtonModule,
+        MatIconModule,
+        DashboardProgressBarModule,
+        DashboardCategoryBoardModule,
+        MatSlideToggleModule,
+        FormsModule,
+        MatSortModule,
+        MatTableModule,
+        RouterModule,
+    ]
 })
 export class DashboardCardModule {
 }

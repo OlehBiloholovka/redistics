@@ -164,27 +164,6 @@ export class RegistrationIndicatorService {
     return this.getPartnerEmployeesRank();
   }
 
-  getTeamIndividualData(): CardData {
-    const cardData = new CardData();
-    cardData.cardDate = Date.now();
-    cardData.rankData = this.getTeamIndividualEmployeesRank();
-    return cardData;
-  }
-
-  getTeamPprData(): CardData {
-    const cardData = new CardData();
-    cardData.cardDate = Date.now();
-    cardData.rankData = this.getTeamPprEmployeesRank();
-    return cardData;
-  }
-
-  getTeamPartnerData(): CardData {
-    const cardData = new CardData();
-    cardData.cardDate = Date.now();
-    cardData.rankData = this.getTeamPartnerEmployeesRank();
-    return cardData;
-  }
-
   getIndividualData(): CardData {
     const cardData = new CardData();
     cardData.calculationData = this.getIndividualRegistrationIndicator();
