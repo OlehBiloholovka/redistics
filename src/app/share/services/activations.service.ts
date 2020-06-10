@@ -90,6 +90,17 @@ export class ActivationsService {
     ];
   }
 
+  getAPEmployeesRank(): Employee[] {
+    return [
+      {name: 'Hot', onCheckingLevel: 0.85, checkedLevel: 1.05},
+      {name: 'Shkvarok', onCheckingLevel: 0.56, checkedLevel: 1.25, userCode: 12345},
+      {name: 'Petrivkyi', onCheckingLevel: 0.32, checkedLevel: 0.42},
+      {name: 'Petriv', onCheckingLevel: 0.78, checkedLevel: 0.89},
+      {name: 'Petrivkyi', onCheckingLevel: 0.32, checkedLevel: 0.42},
+      {name: 'Petriv', onCheckingLevel: 0.78, checkedLevel: 0.89},
+    ];
+  }
+
   getTeamActivationsEmployeesRank(): Employee[] {
     return this.getActivationsEmployeesRank();
   }
@@ -119,10 +130,14 @@ export class ActivationsService {
 
   getActivationsData(): CardData {
     const cardData = new CardData();
-    cardData.cardDate = Date.now();
+    cardData.multipleCardDate = [Date.now(), Date.now()];
     cardData.chartData = this.getActivationsChartIndicators();
     cardData.radialBarData = this.getActivationsIndicators();
-    cardData.rankData = this.getActivationsEmployeesRank();
+    cardData.rankButtons = ['Активації', 'Списання АП'];
+    cardData.multipleRankData = [
+      this.getActivationsEmployeesRank(),
+      this.getAPEmployeesRank()
+    ];
     return cardData;
   }
 }
