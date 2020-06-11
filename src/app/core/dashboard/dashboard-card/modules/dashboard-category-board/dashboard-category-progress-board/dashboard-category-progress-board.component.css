@@ -1,0 +1,44 @@
+.category-progress-board-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.progress-container {
+  border-radius: 0.5rem;
+  border: thin solid #546E7A;
+  min-height: 35px;
+  height: fit-content;
+  width: 50px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*padding-top: 0.25rem;*/
+  padding-bottom: 0.25rem;
+  background-color: #546E7A;
+}
+.progress-container * {
+  margin-top: 0.25rem;
+}
+.category-container, .plan-result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  min-width: 2.2rem;
+}
+.mat-progress-bar {
+  height: 1rem;
+}
+.category-container {
+  font-size: 150%;
+}
+.plan-result-container {
+
+}
+.white-background {
+  background-color: #FFF;
+}
+.white-font {
+  color: #FFF;
+}

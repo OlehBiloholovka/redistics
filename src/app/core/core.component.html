@@ -1,23 +1,27 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+  <mat-sidenav #drawer [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false"
+               class="sidenav"
+               fixedInViewport>
     <mat-toolbar>Меню</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#" (click)="isHandset ? drawer.close() : null">Dashboard</a>
-      <a mat-list-item href="#" [routerLink]="['/registrations']" (click)="isHandset ? drawer.close() : null">Реєстрації</a>
-      <a mat-list-item href="#" [routerLink]="['/admin']" (click)="isHandset ? drawer.close() : null">Адміністрування</a>
+      <a (click)="isHandset ? drawer.close() : null" [routerLink]="['/dashboard']" href="#"
+         mat-list-item routerLinkActive="active-link">Dashboard</a>
+      <a (click)="isHandset ? drawer.close() : null" [routerLink]="['/registrations']" href="#"
+         mat-list-item routerLinkActive="active-link">Реєстрації</a>
+      <a (click)="isHandset ? drawer.close() : null" [routerLink]="['/admin']" href="#"
+         mat-list-item routerLinkActive="active-link">Адміністрування</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
-        type="button"
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
         aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        type="button">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>REDistics</span>

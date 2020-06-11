@@ -18,11 +18,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-right: 0.5rem;
 }
 .menu-button-row {
-  padding: 0 1rem 0 1rem;
+  padding: 0.1rem 1rem 0.5rem 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .menu-button-row button,
 .menu-button-row a {
   margin: 0 8px 8px 0;
+  flex: 0 0 auto;
   /*margin-right: 8px;*/
   /*margin-right: 8px;*/
 }
@@ -36,4 +41,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 th.mat-column-position, td.mat-column-position {
   padding-left: 1rem;
+}
+.active-link{
+  background-color: #f5f5f5;
 }

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {CoreComponent} from './core.component';
 
@@ -9,6 +9,11 @@ const routes: Routes = [
     component: CoreComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
         path: 'admin',
         loadChildren: () => import(`./admin/admin.module`).then(m => m.AdminModule)
       },
@@ -16,6 +21,10 @@ const routes: Routes = [
         path: 'registrations',
         loadChildren: () => import(`./registrations/registrations.module`).then(m => m.RegistrationsModule)
       },
+      {
+        path: 'dashboard',
+        loadChildren: () => import(`./dashboard/dashboard.module`).then(m => m.DashboardModule),
+      }
     ],
   },
 ];
@@ -27,4 +36,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class CoreRoutingModule { }
+export class CoreRoutingModule {
+}

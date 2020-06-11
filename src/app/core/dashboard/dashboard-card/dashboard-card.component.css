@@ -1,0 +1,92 @@
+.flip-dashboard-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.flip-dashboard-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
+}
+
+.rotate-card {
+  transform: rotateY(180deg);
+}
+
+.rotate-card * {
+  z-index: 0;
+}
+
+.front-dashboard-card, .back-dashboard-card {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 1.5rem;
+}
+
+.back-dashboard-card {
+  transform: rotateY(180deg);
+}
+
+.front-dashboard-card, .back-dashboard-card {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.mat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.mat-card-title, .mat-card-subtitle {
+  text-align: right;
+}
+
+.mat-card-subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mat-card-content {
+  flex-grow: 1;
+}
+
+.mat-card-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0.75rem;
+  display: flex;
+  justify-self: end;
+  justify-content: flex-end;
+}
+
+.card-button {
+  line-height: 1.75rem;
+  padding: 0 8px;
+  min-width: 3rem;
+}
+
+.menu-button-row {
+  padding-left: 0.1rem;
+}

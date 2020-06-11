@@ -1,0 +1,34 @@
+<table [dataSource]="dataSource" mat-table matSort>
+  <ng-container matColumnDef="index">
+    <td *matCellDef="let el; let i = index;" mat-cell>
+      {{i + 1}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <td *matCellDef="let el" mat-cell>
+      {{el['name']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="absoluteLevel">
+    <td *matCellDef="let el" class="absolute-level" mat-cell>
+      {{el['absoluteLevel']}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="progressBar">
+    <td *matCellDef="let el" class="progress-td" mat-cell>
+      <mat-progress-bar
+        [class]="updateProgressBarColor(el['level'])"
+        [value]="el['level'] * 100"
+        mode="determinate"
+      ></mat-progress-bar>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="level">
+    <td *matCellDef="let el" class="progress-td" mat-cell>
+      {{el['level'] | percent}}
+    </td>
+  </ng-container>
+  <tr *matRowDef="let row; columns: displayedColumns;"
+      [ngClass]="updateRankTableRowColor(row)"
+      mat-row></tr>
+</table>

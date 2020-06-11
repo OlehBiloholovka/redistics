@@ -1,0 +1,23 @@
+.calculation-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.calculation-container > * {
+  margin-bottom: 1rem;
+}
+
+.category-boards-container {
+  border-radius: 0.5rem;
+  border: thin solid #546E7A;
+  padding: 0.25rem 0;
+}
+
+.category-boards-container > * {
+  margin-bottom: 0.25rem;
+}
+
+.grey-background {
+  background-color: #546E7A;
+}

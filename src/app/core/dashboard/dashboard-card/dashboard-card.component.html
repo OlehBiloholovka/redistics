@@ -1,0 +1,82 @@
+<div class="flip-dashboard-container">
+  <div #dashboardCard class="flip-dashboard-card" [class.rotate-card]="isRotated">
+    <mat-card class="front-dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{frontDashboardCardName}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          <div>
+            <mat-slide-toggle [(ngModel)]="checkedData"
+                              color="primary">{{toggleName}}</mat-slide-toggle>
+          </div>
+          {{registrationIndicator?.calculationDate || cardData?.cardDate | date:'dd/MM/yyyy'}}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <app-dashboard-card-calculation
+          *ngIf="registrationIndicator || cardData?.calculationData"
+          [isChecked]="checkedData"
+          [registrationIndicator]="registrationIndicator || cardData?.calculationData"
+        ></app-dashboard-card-calculation>
+        <app-dashboard-progress-chart
+          *ngIf="chartData || cardData?.chartData"
+          [isChecked]="checkedData"
+          [height]="230"
+          [progressData]="chartData || cardData?.chartData"
+        ></app-dashboard-progress-chart>
+        <app-dashboard-progress-radial-bar
+          *ngIf="radialBarData || cardData?.radialBarData"
+          [isChecked]="checkedData"
+          [progressData]="radialBarData || cardData?.radialBarData"
+        ></app-dashboard-progress-radial-bar>
+        <app-dashboard-progress-circle-bar
+          *ngIf="cardData?.circleBarData"
+          [isChecked]="checkedData"
+          [progressData]="cardData?.circleBarData"
+        >
+        </app-dashboard-progress-circle-bar>
+      </mat-card-content>
+      <mat-card-footer>
+        <button *ngIf="hasBackCard" (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </mat-card-footer>
+    </mat-card>
+    <mat-card class="back-dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{backDashboardCardName}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          <mat-slide-toggle [(ngModel)]="checkedData" color="primary">{{toggleName}}</mat-slide-toggle>
+          {{registrationIndicator?.calculationDate || cardData?.cardDate || cardData?.multipleCardDate[0] | date:'dd/MM/yyyy'}}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <div *ngIf="cardData.multipleRankData" class="menu-button-row">
+          <a *ngFor="let rButton of cardData.rankButtons; index as i"
+             mat-raised-button
+             class="card-button"
+             [class.mat-accent]="i === rButtonIndex"
+             (click)="onRankButtonClick(i)"
+          >{{rButton}}</a>
+        </div>
+        <app-dashboard-rank
+          *ngIf="cardData?.rankData || cardData?.multipleRankData"
+          [isChecked]="checkedData"
+          [employees]="cardData?.rankData || cardData.multipleRankData[0]"
+          [userCode]="userCode"
+          [showAbsoluteLevel]="showAbsoluteLevelRank"
+        ></app-dashboard-rank>
+      </mat-card-content>
+      <mat-card-footer>
+        <button *ngIf="hasBackCard" (click)="rotateCard(dashboardCard)" color="accent" mat-mini-fab>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+
+

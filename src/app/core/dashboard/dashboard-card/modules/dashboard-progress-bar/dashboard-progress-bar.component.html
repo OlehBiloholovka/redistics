@@ -1,0 +1,39 @@
+<div class="dashboard-progress-bar-container">
+  <div [style.height.rem]="dashboardProgressBar.progressBarHeight" class="dashboard-progress-bar-prefix-container">
+    <div [style.color]="dashboardProgressBar.progressBarFontColor"
+         [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+         class="dashboard-progress-bar-prefix">{{dashboardProgressBar.prefixValue}}</div>
+  </div>
+  <div class="inner-dashboard-progress-bar-container">
+    <div [style.height.rem]="dashboardProgressBar.progressBarHeight" class="dashboard-progress-bar">
+      <div [style.height.rem]="dashboardProgressBar.progressBarHeight"
+           [class.right-radius]="!dashboardProgressBar.secondProgressValue"
+           [style.width]="dashboardProgressBar.firstProgressValue" class="dashboard-progress-first">
+        <div [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+             class="dashboard-progress-first-value">{{dashboardProgressBar.firstProgressValueLabel}}</div>
+      </div>
+      <div [style.height.rem]="dashboardProgressBar.progressBarHeight"
+           [style.width]="dashboardProgressBar.secondProgressValue"
+           class="dashboard-progress-second">
+        <div [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+             class="dashboard-progress-second-value">{{dashboardProgressBar.secondProgressValueLabel}}</div>
+      </div>
+    </div>
+    <div class="under-progress-bar-labels-container">
+      <div [style.color]="dashboardProgressBar.progressBarFontColor"
+           [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+           class="first-under-progress-bar-label">{{dashboardProgressBar.firstUnderProgressValue}}</div>
+      <div [style.color]="dashboardProgressBar.progressBarFontColor"
+           [style.font-size.em]="dashboardProgressBar.middleUnderProgressBarFontSize"
+           class="middle-under-progress-bar-label">{{dashboardProgressBar.middleUnderProgressValue}}</div>
+      <div [style.color]="dashboardProgressBar.progressBarFontColor"
+           [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+           class="last-under-progress-bar-label">{{dashboardProgressBar.lastUnderProgressValue}}</div>
+    </div>
+  </div>
+  <div [style.height.rem]="dashboardProgressBar.progressBarHeight" class="dashboard-progress-bar-suffix-container">
+    <div [style.color]="dashboardProgressBar.progressBarFontColor"
+         [style.font-size.em]="dashboardProgressBar.progressBarFontSize"
+         class="dashboard-progress-bar-suffix">{{dashboardProgressBar.suffixValue}}</div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+#chart {
+  max-width: 350px;
+  /*margin: 35px auto;*/
+}
+/*:host ::ng-deep * {*/
+/*  border: solid 3px #546E7A;*/
+/*}*/
+/*:host ::ng-deep text {*/
+/*  white-space: pre-wrap !important;*/
+/*  width: 30px !important;*/
+/*  max-width: 30px !important;*/
+/*  display: flex;*/
+/*}*/
+.dashboard-card {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 1.5rem;
+  /*height: fit-content;*/
+}
+.mat-card-header {
+  justify-content: flex-end;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+

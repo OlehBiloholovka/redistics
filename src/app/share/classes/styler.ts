@@ -8,18 +8,18 @@ export class Styler {
   static getCellStyle(completable: Completable) {
     if (completable.isCompleted()) {
       return {
-        color: 'white'
+        color: '#e3004d'
       };
     }
     if (completable instanceof OutletRegistration || completable instanceof IndividualPlanPartnerRegistration) {
       if (completable.mayBeCompleted()) {
         return {
-          color: 'blue'
+          color: '#4336f4'
         };
       }
       if (completable.toMakeUnchecked() < 3 && completable.sendCount !== 0) {
         return {
-          color: 'blue'
+          color: '#1967fe'
         };
       }
     }
@@ -33,24 +33,24 @@ export class Styler {
   static getRowStyle(completable: Completable) {
     if (completable.isCompleted()) {
       return {
-        'background-color': 'green',
+        'background-color': '#00E396',
       };
     }
     if (completable instanceof OutletRegistration || completable instanceof IndividualPlanPartnerRegistration) {
       if (completable.mayBeCompleted()) {
         return {
-          'background-color': 'orange',
+          'background-color': '#e7f436',
         };
       }
       if (completable.toMakeUnchecked() < 3 && completable.sendCount !== 0) {
         return {
-          'background-color': 'yellow',
+          'background-color': '#FEB019',
         };
       }
     }
     if (completable.sendCount === 0) {
       return {
-        'background-color': 'red',
+        'background-color': '#FF4560',
       };
     }
     return {};
@@ -58,17 +58,17 @@ export class Styler {
   static getDetailedCellStyle(registration: Registration) {
     if (RegistrationCounter.isDudOk(registration)) {
       return {
-        color: 'white'
+        color: 'black'
       };
     }
     if (RegistrationCounter.isInActivation(registration)) {
       return {
-        'background-color': 'blue',
+        color: 'blue',
       };
     }
     if (RegistrationCounter.maybeDudOk(registration)) {
       return {
-        'background-color': 'blue',
+        color: 'blue',
       };
     }
     return {
@@ -78,21 +78,21 @@ export class Styler {
   static getDetailedRowStyle(registration: Registration) {
     if (RegistrationCounter.isDudOk(registration)) {
       return {
-        'background-color': 'green',
+        'background-color': '#00E396',
       };
     }
     if (RegistrationCounter.isInActivation(registration)) {
       return {
-        'background-color': 'yellow',
+        'background-color': '#FEB019',
       };
     }
     if (RegistrationCounter.maybeDudOk(registration)) {
       return {
-        'background-color': 'orange',
+        'background-color': '#e7f436',
       };
     }
     return {
-      'background-color': 'red',
+      'background-color': '#FF4560',
     };
   }
 }

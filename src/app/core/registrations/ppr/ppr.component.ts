@@ -44,7 +44,7 @@ export class PprComponent implements OnInit {
     outletRegistration1.plan = 5;
     outletRegistration1.sendCount = 7;
     outletRegistration1.checkedCount = 2;
-    outletRegistration1.onCheckingCount = 6;
+    outletRegistration1.onCheckingCount = 2;
     outletRegistration1.typeRDMS = 'AA_4';
     const outletRegistration2 = new OutletRegistration();
     outletRegistration2.nameRDMS = 'Kyivstar';
@@ -52,7 +52,7 @@ export class PprComponent implements OnInit {
     outletRegistration2.PPR = 'Да';
     outletRegistration2.categoryRDMS = 'Спец. розница (GSM)';
     outletRegistration2.plan = 5;
-    outletRegistration2.sendCount = 4;
+    outletRegistration2.sendCount = 0;
     outletRegistration2.checkedCount = 0;
     outletRegistration2.onCheckingCount = 0;
     outletRegistration2.typeRDMS = 'AA_4';

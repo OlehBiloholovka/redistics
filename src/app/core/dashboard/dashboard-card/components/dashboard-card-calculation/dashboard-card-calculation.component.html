@@ -1,0 +1,17 @@
+<div class="calculation-container">
+  <div class="category-boards-container">
+    <div>
+      <app-dashboard-category-progress-board
+        [dashboardCategoryBoard]="aCategoryProgressBoard"
+      ></app-dashboard-category-progress-board>
+    </div>
+    <app-dashboard-category-progress-board
+      [dashboardCategoryBoard]="bCategoryProgressBoard"
+    ></app-dashboard-category-progress-board>
+  </div>
+  <div class="category-boards-container grey-background">
+    <app-dashboard-category-share-board
+      [dashboardCategoryBoard]="categoryShareBoard"
+    ></app-dashboard-category-share-board>
+  </div>
+</div>
