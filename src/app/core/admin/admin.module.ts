@@ -18,10 +18,11 @@ import {MatTableModule} from '@angular/material/table';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { AddDataComponent } from './add-data/add-data.component';
 
 
 @NgModule({
-  declarations: [AdminComponent, SettingsComponent, ProfileComponent, UsersComponent],
+  declarations: [AdminComponent, SettingsComponent, ProfileComponent, UsersComponent, AddDataComponent],
     imports: [
         CommonModule,
         AdminRoutingModule,
